@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="http://anetta.io/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Anetta documentation</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Anetta documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="about.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#welcome-to-anetta-documentation" class="nav-link">Welcome to Anetta Documentation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#what-is-anetta" class="nav-link">What is Anetta?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#whats-the-point-of-anetta" class="nav-link">What's the point of Anetta?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#installing-anetta" class="nav-link">Installing Anetta</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-architecture" class="nav-link">Anetta Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-configuration" class="nav-link">Anetta Configuration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-network-inventory" class="nav-link">Anetta Network inventory</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#network-inventory-schema" class="nav-link">Network Inventory Schema</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-user-interface" class="nav-link">Anetta User Interface</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-insights" class="nav-link">Anetta Insights</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-api" class="nav-link">Anetta API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-faqs" class="nav-link">Anetta FAQs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#license" class="nav-link">License</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#feedback-and-community" class="nav-link">Feedback and community</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="welcome-to-anetta-documentation">Welcome to Anetta Documentation</h1>
+<p>AI compiled knowledge at the service of network and cloud engineers</p>
+<hr />
+<h2 id="what-is-anetta">What is Anetta?</h2>
+<p>Anetta is an acronym that refers to: 
+    <strong>A</strong>utonomous
+    <strong>net</strong>work
+    <strong>t</strong>roubleshooting
+    <strong>a</strong>gent</p>
+<p>sgsfhgsdfh</p>
+<p>It is <strong>autonomous</strong> because it has the ability to make its own decisions about how to accomplish a certain goal. It is about <strong>networks and clouds</strong>, it has the ability to interact with your network elements, servers, VMs, cloud systems or monitoring systems to achieve a specific outcome. One of the possible outcomes is to <strong>troubleshoot</strong> network problems, as you will see. Finally, it is an <strong>agent</strong>, it has the ability to run based on a specific intent, complex problem formulation or goal, and you can interact with it in plain english. </p>
+<p>At this point, however, it is not <strong>just</strong> about the network, and it is neither <strong>only</strong> about troubleshooting, but both are fundamental components of it and it is how it all started, so I will keep the name for the time being. </p>
+<h3 id="what-does-agent-mean-in-this-context">What does "agent" mean in this context?</h3>
+<p>I am going to stay away from very very marketing oriented terms such as <strong>"network co-pilot"</strong> or <strong>"network GPT"</strong> or the likes.</p>
+<p>Let's be specific and precise about terminology, so we all know what we are talking about:</p>
+<ul>
+<li><strong>LLM</strong>: Large Language Model. A very large neural network trained with natural language with (usually) a very concrete objective: predict the most likely next word given a provided prompt. An LLM is a foundational building block for Anetta, as well as many other products at this point. An LLM, as such is completely "stateless", it has no memory about previous requests.</li>
+</ul>
+<p><center></p>
+<p><img alt="LLM has no memory" src="https://static.wikia.nocookie.net/pixar/images/1/1f/Dory-white.jpg" /></p>
+<p></center></p>
+<ul>
+<li>
+<p><strong>GPT</strong>: Generative Pre-trained Transformer. This is a type of LLM. There are other types. Examples of GPTs are OpenAI's GPT-3.5, GPT-4, Google's Palm2, Antrophic Claude 1 and 2, among others. </p>
+</li>
+<li>
+<p><strong>ChatGPT</strong>: This is not a LLM, this is an application that uses a LLM. You usually get the perception that ChatGPT has memory, because it "knows" about the previous questions you made. However, the underlying LLM is always stateless, so the application is taking care of that by always providing all the required information relative to your previous questions and answers, every time the LLM is prompted.</p>
+</li>
+<li>
+<p><strong>Agent</strong>: An agent is a somewhat <strong>autonomous</strong> entity capable to solve complex problems or achieve goals. There are multiple agent architectures already available. AutoGPT is one of them. Agents are complex systems intended to execute one or several tasks given a goal or "intent" provided by the user. Agents use LLMs where needed to accomplish the goal requested and usually have different mechanisms to keep memory. Anetta is an agent of this kind, but it is not based on any pre-existing agent architecture. It has been purpose built to address the use cases planned. </p>
+</li>
+</ul>
+<p>Therefore, Anetta is:</p>
+<ul>
+<li>
+<p><strong>NOT a LLM</strong>. She uses LLMs where required to perform its mission.</p>
+</li>
+<li>
+<p><strong>NOT a GPT</strong>. She uses LLMs that are GPTs.</p>
+</li>
+<li>
+<p><strong>NOT a ChatGPT</strong>. She does not use ChatGPT nor is a ChatGPT like Application. She is an autonomous agent with strong reasoning and problem solving abilities.</p>
+</li>
+<li>
+<p><strong>an agent</strong>. Given a request, Anetta, as an autonomous agent, will figure out how to respond to the request, and if she succeeds, will provide a response back.</p>
+</li>
+</ul>
+<h3 id="what-can-anetta-do">What can Anetta do?</h3>
+<p>Anetta can do multiple things for you. She is your new network operation partner which you can delegate or ask tasks. What type of tasks?</p>
+<ol>
+<li>You need certain information from one device. You can ask Anetta to find it for you.</li>
+</ol>
+<p><img alt="Simple network query" src="uc_simple_query.png" /></p>
+<ol>
+<li>You need certain information from multiple devices, which may require a complex search given specific constraints. You can ask Anetta to find that information for you.</li>
+</ol>
+<p><img alt="Multiple search query" src="uc_multiple_search.png" /></p>
+<ol>
+<li>You have a problem in the network and you need to find the root cause. You can ask Anetta to diagnose the problem for you. </li>
+</ol>
+<p><img alt="Troubleshooting" src="uc_troubleshooting.png" /></p>
+<ol>
+<li>You have an action you need to execute and you need to plan how to do it. Some of those tasks may require multiple steps, including pre- and post-checks. You can ask Anetta to generate that detailed plan for you.</li>
+</ol>
+<p><img alt="Action planning" src="uc_planning.png" /></p>
+<p>*Note: The rendering of action plans in the web UI do not look good (yet). That is why the capture here is from a CLI version. </p>
+<ol>
+<li>You have simply a technology, protocol related question. Anetta may give you quickly an answer to any such question.</li>
+</ol>
+<p><img alt="General info" src="uc_general_info.png" /></p>
+<h3 id="llms-supported">LLMs supported</h3>
+<p>As of the first release, Anetta uses OpenAI's GPT-4 LLM. Tests with GPT-3.5 did not result into good enough results. </p>
+<p>In order to run Anetta you need to have your own OpenAI's API Key which must be configured as part of the configuration file. See Anetta <a href="#anetta-configuration">configuration section</a></p>
+<p>Work is on-going to incorporate other LLM options such as Google's Palm2 and Antrophic Claude 2. We are evaluating as well the opportunity and need to customize and fine tune a model for our purposes. </p>
+<h3 id="devices-supported">Devices supported</h3>
+<p>Based on the experience with OpenAI's GPT-4 LLM, we have seen she knows well how to deal with the major networking vendors such as Cisco, Juniper, Arista, Nokia. That said, the degree of completeness is still unknown. Your feedback will be extremely valuable to have a better assessment on what works, what doesn't, for which vendors there is better support or limited. </p>
+<p>Anetta also interacts quite well with Linux servers or VMs as well as API based interactions with Prometheus and graphQL based Inventory systems. </p>
+<p>Last, but not least, if you are running assets in Google Cloud Platform, Anetta can interact with GCP API to retrieve and analyze metrics associated to your cloud assets.</p>
+<h3 id="data-sources-supported">Data sources supported</h3>
+<p>In order to provide answers to the tasks requested, Anetta has the capability to autonomously reach various types of data sources to find the information it needs. The following are the data sources currently supported:</p>
+<ul>
+<li>
+<p><strong>GraphQL based inventory</strong>: Either leveraging Anetta's internal inventory service or external one, and given a known schema expressed in GraphQL SDL, Anetta can query inventory to find the information it needs from the network devices.</p>
+</li>
+<li>
+<p><strong>SSH CLI</strong>: Anetta can connect with network devices using SSH and execute operational CLI commands to obtain information. Anetta SSH plug-in requires login credentials for that purpose. It is assumed at the moment that there is SSH connectivity between Anetta and the network devices. SSH proxy support is work in progress. Anetta will only execute operational commands, but it is adviced that the credential provided have read-only access. Anetta's purpose is to provide answers to questions, not to execute actions. </p>
+</li>
+<li>
+<p><strong>SSH</strong>: Anetta can connect to any SSH system and execute shell commands. The main purpose of this is to obtain information from Servers or VMs. </p>
+</li>
+<li>
+<p><strong>SNMP</strong>: Anetta can query network devices using SNMPv2. </p>
+</li>
+<li>
+<p><strong>Prometheus</strong>: If you use Prometheus to keep your network data time series, Anetta can query Prometheus and use it as a source to give you the answers you are after.</p>
+</li>
+<li>
+<p><strong>Google Cloud Metrics API</strong>: If you are running GCP, Anetta can use GCP API to query for data required.</p>
+</li>
+</ul>
+<h3 id="quality-of-anetta-responses">Quality of Anetta responses</h3>
+<p>This section may sound a bit of a disclaimer, and it is to a certain extent. We are witness and now also actors of a <strong>technology revolution</strong> driven by LLMs. What we are seeing is still the <strong>tip of the Iceberg</strong>. That said, the "output" of an LLM is not <em>deterministic</em>, it is more <em>probabilistic</em>. The input is also a "free form" representation of your intent. Given the above, in the majority of the cases we see Anetta responding accurately to the requests made. Sometimes she cannot figure out the way to respond, or the way she figures out does not lead to the expected results, and in very few cases she may produce a wrong response (i.e. hallucination)</p>
+<p>In Anetta, we are experimenting with some novel techniques to improve the quality of the responses provided by LLMs. Anetta can automatically spin up a swarm of agents to provide a higher quality response. While this feature is very experimental, the results seen so far look very promising. </p>
+<p><strong>Your feedback</strong> about the use cases you try, and the responses you get, whether right or wrong <strong>will be instrumental</strong> to improve it or find areas where the reasoning algorithms fail and we need to strengthen them. </p>
+<p>This is a journey that is just starting, and as LLMs mature and we improve the ways to interact and program with them, the quality of the responses will get better and better.</p>
+<h3 id="interacting-with-anetta">Interacting with Anetta</h3>
+<p>Users can interact with Anetta via the web based conversational interface or via API:</p>
+<ul>
+<li>
+<p>Web interface: <code>http://&lt;Anetta IP address&gt;:8000</code></p>
+</li>
+<li>
+<p>REST API: <code>http://&lt;Anetta IP address&gt;:8000/api/v1/</code></p>
+</li>
+</ul>
+<p>You may wonder, why the 8000? Well, there is one place where I had to "hardcode" it, so other than that, it could be any other port. Because of that, for the time being, 8000 must be the port. In the future, we will make it flexible, for sure.</p>
+<hr />
+<h2 id="whats-the-point-of-anetta">What's the point of Anetta?</h2>
+<p>Our mission with Anetta is to empower network, IT and cloud engineers to do more, to be better and faster. Anetta helps engineers to delegate tasks and low value activities. Anetta is your partner: you can ask what you need and get responses. </p>
+<p>As a network, IT or cloud engineer you need to interact with multiple systems throughout the day to get what you need. You may frequently login into network elements to obtain certain information via CLI. You may check in the inventory data you need to get the right responses. You may also check in your network monitoring systems about data or state from the network or cloud. All this requires time, and assumes you know how to deal with all those systems, even more so in a multivendor environment. Anetta is here to help you in all those interactions, potentially releasing you from having to drive all those interactions directly, letting Anetta do it on your behalf.</p>
+<p>Ultimately, Anetta will help you save time, personally, and also save time to your team and organization. </p>
+<hr />
+<h2 id="installing-anetta">Installing Anetta</h2>
+<p>Anetta is packaged as a Docker Container. It is necessary that you have installed docker in your platform.</p>
+<p>You can download Anetta's docker image from Docker Hub:</p>
+<pre><code>docker pull javierantich/anetta-1-0-0:v1.0.0
+</code></pre>
+<p>In addition, you have to download a few files from Github to make sure it works. 
+Download or clone the following Github repo in the local folder of your choice where you will run Anetta</p>
+<pre><code>https://github.com/javier-antich/anetta-install
+</code></pre>
+<p>Please, follow carefully the next 3 steps:</p>
+<ul>
+<li>Make sure you edit the configuration file (<code>anetta_config.yml</code>), see the Anetta <a href="#anetta-configuration">configuration section</a> for details on what needs to be edited. </li>
+<li>Also, make sure you populate the inventory (<code>inventory.yml</code>) with the devices you are interested Anetta to interact with. </li>
+<li>Last but not least, if you are planning for Anetta to interact with your Google Cloud Platform API, you need to make sure you obtain the JSON file with the key for a service account in the Google Cloud project of interest, and place that file in the folder with the name <code>gcp_service_account_credentials.json</code>. This is necessary for Anetta to be able to login in the API and make queries.</li>
+</ul>
+<p>Once you have the Docker image downloaded, run the following command from the folder where you downloaded and edited the configuration files:</p>
+<pre><code>docker compose up
+</code></pre>
+<p>This will create the container, load the corresponding configuration files and initiate Anetta. At this point, you should have anetta running.</p>
+<pre><code>javier@Javiers-MBP anetta_test % docker compose up                           
+[+] Running 1/0
+ ⠿ Container anetta  Created                                                                                                                                0.0s
+Attaching to anetta
+anetta  | Base directory: /anetta
+anetta  | Base directory: /anetta
+anetta  | Performing system checks...
+anetta  | 
+anetta  | System check identified no issues (0 silenced).
+anetta  | September 13, 2023 - 13:16:27
+anetta  | Django version 4.2.2, using settings 'core.settings'
+anetta  | Starting ASGI/Daphne version 4.0.0 development server at http://0.0.0.0:8000/
+anetta  | Quit the server with CONTROL-C.
+anetta  | Extracting from the asgi fle
+
+</code></pre>
+<p>And it should be possible to use the web interface at <code>http://127.0.0.1:8000</code></p>
+<hr />
+<h2 id="anetta-architecture">Anetta Architecture</h2>
+<p>The following diagram captures Anetta logical architecture:</p>
+<p><img alt="Anetta architecture" src="anetta-architecture.png" /></p>
+<p>Anetta follows a plug-in based architecture where specific plug-ins are developed for different types of sources. The following are the currently available plug-ins:</p>
+<ul>
+<li>
+<p><strong>Netmiko plug-in</strong>: It used by Anetta to run CLI commands in network devices. It is expected that the inventory schema, will include some field that will give an indication of what vendor a certain device is. Based on that Anetta will figure out automatically what CLI commands need to be executed to obtain the information desired. </p>
+</li>
+<li>
+<p><strong>SNMP plug-in</strong>: It is used by Anetta to query using SNMPv2 any OID that may be necessary to respond to the questions formulated. </p>
+</li>
+<li>
+<p><strong>Paramiko plug-in</strong>: It is used by Anetta to connect via SSH to any non-network element (i.e. a server, a VM) and execute shell commands.</p>
+</li>
+<li>
+<p><strong>Google Cloud plug-in</strong>: Anetta uses this plug-in to query for data using the Google Cloud metrics API. </p>
+</li>
+<li>
+<p><strong>Prometheus Smart Plug-in</strong>: This plug-in is used to find information from a Prometheus instance. It is an special plug-in. It has some additional smarts to find the information requested.</p>
+</li>
+<li>
+<p><strong>Inventory Plug-in</strong>: Inventory is a fundamental component in any network infrastructure. It is the source of truth. Anetta has a plug-in to connect to a graphQL capable inventory service to obtain, when needed, information about the devices.</p>
+</li>
+</ul>
+<p>There are various internal services:</p>
+<ul>
+<li>
+<p><strong>Core reasoning</strong>: This module is responsible for the reasoning, interpretation and execution of the tasks. For that purpose, she may spin up one or multiple specialized agent instances that will interact with the LLMs. Anetta uses a hierarchical agent architecture where agents work coordinately to respond to the formulated problem or question.</p>
+</li>
+<li>
+<p><strong>Anetta insights</strong>: This service is intended to provide visibility of the operation itself of Anetta. The insights are exposed in the Web UI.</p>
+</li>
+<li>
+<p><strong>Inventory service</strong>: As a stop-gap solution, there is an internal inventory service that is fed by an inventory file. You can populate the inventory file with the information of the devics you want Anetta to interact with, and this inventory service along with the schema associated will be used by the inventory plug-in.</p>
+</li>
+<li>
+<p><strong>Web Front-end</strong>: Anetta has been built leveraging Django framework. Since it is still a prototype, at the moment it runs Django's development web server, not a "real" production web server. In the future it will be migrated, but for the time being, it is good enough to evaluate multiple use cases.</p>
+</li>
+</ul>
+<hr />
+<h2 id="anetta-configuration">Anetta Configuration</h2>
+<p>Anetta behavior is driven by a configuraiton file <code>anetta_config.yml</code>. This YAML file contain the key directives that enable Anetta. Let's review them one by one. The configuration file has also some guidance on each. Every time a new conversation starts with Anetta or Anetta is reloaded, the configuration will be read and parameters incorporated. In case you need to change any parameter in the configuration file, you will need to start a new conversation or restart Anetta. For practical purposes, every API request is equivalent to a new conversation, so any change in the configuration file will be incorporated before any API request. </p>
+<pre><code>
+#LLM information
+#At the moment only gpt-4 is available. 
+llm:
+  model: 'gpt-4'
+  openai_key: '&lt;your OpenAI API key&gt;'
+
+</code></pre>
+<p>At the moment, only GPT-4 is supported. No other model option is supported at this point, so modifying the model parameter will not have an effect. However, if the <code>openai_key</code>parameter is not populated or not present, Anetta will fail to function. It is a mandatory parameter.</p>
+<pre><code>#operation
+operation:
+  max_steps: 10
+  #the following parameter is highly experimental. It will spin up a swarm of agents to get your responses
+  num_agents: 1
+
+</code></pre>
+<p>The section above refers to certain parameters that control the operation. <code>max_steps</code> controls the maximum number of steps that Anetta will execute when troubleshooting a problem. <code>num_agents</code> controls a very experimental feature at this point that allows Anetta to launch a swarm of <code>num_agents</code> agents that increases the probability of finding the right answer to an information search. By default it is disabled by setting the number of agents to 1.</p>
+<p>Setting <code>num_agents</code> to a number greater than one will work, but it will substantially increase the execution time since the execution is not parallelized at this point yet. This is a todo item. Functionally wise,  it should still provide the expected response.</p>
+<pre><code>#data sources available
+#if any of the following sources is not available for Anetta to use, set it to 'no', otherwise errors will happen
+data_sources:
+  ssh_cli: 'yes'
+  ssh: 'no'
+  snmp: 'no'
+  prometheus: 'no'
+  google_cloud: 'yes'
+
+</code></pre>
+<p>As referred, Anetta supports several sources to answer your questions. A particular deployment of Anetta may not use or have all those sources available. By configuration we can specify which sources are available in your scenario. If you have, for example, a Prometheus deployment which Anetta can connect to, then for the <code>prometheus</code> parameter you will specify <code>yes</code>. Likewise, if you are not dealing with Google Cloud Platform compute resources, you would set the <code>google_cloud</code> parameter to <code>no</code>. Any parameter that is not specified will be by default disabled. 
+Note that <code>ssh_cli</code> refers to using CLI commands in network devices via SSH connections, whereas  <code>ssh</code> refers to executing shell commands via SSH generically in servers or VMs. 
+For each of the sources referred, there is a specific section in the configuration that will include source specific parameters.</p>
+<pre><code>#cli specific parameters
+# I know, I know, at some point it should use a secrets vault, but I´m not there yet.
+ssh_cli:
+  user_name: '&lt;your ssh user name&gt;'
+  password: '&lt;your ssh password&gt;'
+
+</code></pre>
+<p>In this early stage, the SSH CLI plug-in is based on username and password. One clear improvement will be to offer a more secure way to provide this information by querying a secrets vault, but that is not implemented yet. Some more work is required to enable different authentication options, including supporting SSH proxy which is work in progress. The same user_name and password is used for plain SSH shell connections to servers or VMs.</p>
+<pre><code>#snmp specific parameters
+snmp:
+  #no other version than v2c is supported for pratical purposes. More in the future.
+  version: 'v2c'
+  community_string: 'public'
+
+</code></pre>
+<p>Anetta will use the above parameters to query devices using SNMPv2 for the specific OIDs that may be required.</p>
+<pre><code>
+#prometheus server parameters
+#if you have a prometheus server you want Anetta to use to read data, set the parameters here.
+prometheus:
+  prometheus_host: '&lt;prometheus DNS or IP address&gt;'
+  prometheus_port: '&lt;prometheus port&gt;'
+  prometheus_label_list_api_call: '/api/v1/label/__name__/values'
+
+
+</code></pre>
+<p>The main parameters for prometheus are the host and port where prometheus is running. At this point, no authentication is supported. </p>
+<pre><code>#Google Cloud data:
+#if you want Anetta to give you responses about your Google cloud resources,
+# set here the path project ID.
+google_cloud:
+  gcp_project_id: '&lt;your GCP project ID&gt;'
+
+</code></pre>
+<p>For Google Cloud API requests, the GCP project ID is required. Likewise, it is necessary that a service account key file (json) be installed (see install guide) so that API authentications can succeed.</p>
+<pre><code>
+#inventory service
+#if you can provide an alernative inventory source than the one Anetta offers by default, modify the following
+#otherwise, simply edit the inventory file (inventory.yml)
+inventory:
+  graphql_service: 'http://localhost:8000/graphql'
+  inventory_sdl: 'inventory_sdl.yml'
+  inventory_file: 'inventory.yml'
+
+</code></pre>
+<p>Anetta has an internal inventory service that is used to expose the device inventory. This inventory service is populated with the content of the <code>inventory.yml</code>file. The schema of the inventory is captured in the <code>inventory_sdl.yml</code>file. Anetta will use the inventory as well as the schema to obtain the necessary information from the devices such as type of device, IP address, etc. If a different inventory service is used such as an external graphql compatible source, it is important to create the corresponding <code>inventory_sdl.yml</code>file that will still be used by Anetta to learn how to query such external inventory source.</p>
+<pre><code>#human processing times
+
+human_processing_times:
+  decision_request: 5
+  analysis_request: 30
+  information_request: 60
+  plan_request: 30
+  action_plan_request: 300
+  command_execution: 10
+  versions_request: 0
+
+</code></pre>
+<p>One of the key outcomes associated to using Anetta is that you can delegate tasks so that she executes them. By doing that you are saving time. How do we estimate that time saved? We do a basic calculation based on how long it would take a human to execute those tasks versus how long it did actually took to Anetta, for a given task. Every request to Anetta can be broken down into more atomic tasks that Anetta executes: whether it is making a decision, analyzing a router output, planning a task, executing a command in a network device, etc. For this purpose, some default values are used as estimated time (in seconds) that would take for a human to process or execute those actions. If you do not agree with the default numbers feel free to change them, they are nothing but a basic estimation. Ultimately, one key goal is to identify, over time, how much and where Anetta is providing a tangible benefit in the form of time saved.</p>
+<pre><code>api:
+  #time in hours Anetta will keep responses in its cache before deleting them.
+  requests_cache_time: 1
+
+</code></pre>
+<p>Anetta API provides an asynchronous service where queries can be triggered, and the result may be collected afterwards. In order to limit the amount of memory occupied by the old queries, there is a timer that will facilitate cleaning the requests cache for older queries. By default is set to 1 hour, but it can be modified if required. </p>
+<pre><code>domains:
+  ip_mpls: &quot;
+     The context for my requests is:
+    - An IP/MPLS network. 
+    - The network is running OSPF as IGP
+    - All routers are in the same area 0.
+    - The network is running LDP as MPLS transport label signaling protocol.
+    - Only PE routers vsrxng6 and vsrxng7 are running BGP
+    - Routers vsrxng3 and vsrxng4 are pure LSRs, they do not run BGP
+    - The PE routers are running BGP based MPLS VPNs.
+    - The network Autonomous System is 65001
+    - The BGP sessions are established using loopback addresses.
+    - In the routers, the loopback address is the interface lo0.0
+  &quot;
+
+</code></pre>
+<p>One important thing to take into account with Anetta (any LLM-based system for that matter) is that they do not know what they do not know. The more and the better context we can provide the better outcomes we will obtain. The goal of the <code>domains</code> section is to provide a textual description of the domain Anetta will operate on. This can be a bulleted list as in the example, or can be simply a description. The name of the domain at this point is not relevant, could be anything you want. Only one domain is supported at this point. If you add more than one domain, she will pick up only the last one. If you do not provide domain description, she will still work, but she may likely have more challenges to give you the answers you need. </p>
+<hr />
+<h2 id="anetta-network-inventory">Anetta Network inventory</h2>
+<p>As referred earlier, Anetta has a little internal inventory service that is fed by an inventory file <code>inventory.yml</code> . The following is a sample inventory file:</p>
+<pre><code>inventory:
+  vsrxng3:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.3'
+  vsrxng4:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.4'
+  vsrxng6:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.6'
+  vsrxng7:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.7'
+  my-server:
+    type: 'server'
+    device_type: 'linux_server'
+    ip_address: '10.0.0.1'
+
+
+
+</code></pre>
+<p>The <code>type</code> field helps Anetta understand what type of entity it is. Additionally, the <code>device_type</code>field is necessary to give additional detail on the specifics. In particular, and when it comes to using SSH CLI, Anetta leverages the Netmiko plug-in. Netmiko connections need an explicit signal about the type of device: juniper_junos, etc. Therefore, the expectation is that this field is populated with the matching device type in the context of Netmiko. The following link provides the complete list of Netmiko supported devices and the corresponding id.</p>
+<p><a href="https://github.com/ktbyers/netmiko/blob/develop/PLATFORMS.md#supported-ssh-device_type-values">Netmiko supported SSH device types</a></p>
+<p>The <code>device_type</code> is necessary for Netmiko succesful SSH connection, but ultimately, the CLI commands are generated by Anetta. For that purpose, Anetta needs to know what type of device it is, which is also given by this parameter.</p>
+<p>For devices other than network, like a <code>server</code> Anetta will use plain SSH based on the Paramiko plug-in. The <code>device_type</code> in this case, as in the case of a network device, helps Anetta understand the type of device and how to deal with it.</p>
+<p>If you want to use Anetta's internal inventory service, please populate this YAML file with the devices from your network you want Anetta to connect to.</p>
+<hr />
+<h2 id="network-inventory-schema">Network Inventory Schema</h2>
+<p>Irrespective of whether you use Anetta's internal inventory service or an external GraphQL based inventory, Anetta needs to know the schema in GraphQL SDL (Schema Definition Language). This step is very important as this teaches Anetta what she can do with the inventory, what she can query and how. If this schema is not provided, Anetta will have no way to obtain information from the inventory, and everything else will not work. </p>
+<p>By default a file called <code>inventory_sdl.yml</code> is provided which corresponds to the schema of the internal inventory service. You can take this file and modify it, or create a new one. Make sure in that case that you set the file name in the <code>inventory_sdl</code> parameter in the configuration file.</p>
+<p>The following is the content of the schema provided for internal inventory service:</p>
+<pre><code>inventory_sdl:
+  schema: '
+
+ #name of device in inventory
+
+    type device {
+        deviceName: String!
+
+
+        #type of device in inventory
+        #possible values: network, server, gcloud
+        type: String
+
+
+        #type of vendor and/or operating system
+        #possible values: juniper_junos, linux_server, arista, cisco, google_cloud
+        deviceType: String
+
+
+        #management IP address
+
+        ipAddress: String
+    }
+
+
+    #Root query to access device data
+
+    type Query {
+
+        #Get all devices in inventory
+
+        devices: [Device]
+
+
+        #Get device by name
+
+        device(deviceName: String!): device
+    }
+
+    '
+
+
+</code></pre>
+<hr />
+<h2 id="anetta-user-interface">Anetta User Interface</h2>
+<p>Anetta exposes at the moment a simple user interface based on a DJANGO framework implementation (Admin Volt Pro by Appseed, if you are interested). This may change in the future. </p>
+<p>The main purpose of the UI is to expose the conversational interface to talk with Anetta. 
+At the beginning, Anetta will ask you to authenticate if you have not done yet. There are two local users pre-defined:</p>
+<pre><code>username: noc_manager
+password: noc1234!
+
+username: noc_engineer
+password: noc1234!
+
+</code></pre>
+<p><code>noc_manager</code> has administration privileges whereas <code>noc_engineer</code> does not. </p>
+<p>If you login as <code>noc_manager</code> you can create new users and grups from the UI using the <code>Authentication</code> menu option on the left menu. </p>
+<p>Interacting with Anetta is based on conversations. You can create a new conversation by clicking in <code>Your agent &gt; New Conversation</code> in the left menu. At the momnent there is no conversation history, once a new conversation is created, the previous one dissapears. </p>
+<p>On the left menu you can also find access to <code>Agent Insights</code>. This is described in more detail in the <a href="#anetta-insights">Anetta insights</a> section</p>
+<p>Once you click on <code>New Conversation</code> you will be promtped to provide a description of your request in plain English. The following is an example of a request in a conversation. </p>
+<p><img alt="Conversation example" src="sample_conversation.png" /></p>
+<p>Once you provide your input and press <code>Enter</code> or click <code>Reply</code> button, Anetta will start figuring out what kind of request you made and how to answer. In some cases, as you will see below, some additional input will be required. In all cases, Anetta will end with an estimation of the saved time, based on the settings defined in the configuration file. 
+Once a response is provided, you can continue with new requests or start a new conversation. At the moment, there is no fundamental difference as there is no specific "memory" within a conversation relative to previous requests yet (this is planned for the future).</p>
+<h3 id="using-anetta-examples">Using Anetta. Examples</h3>
+<p>When you initiate a conversation with Anetta, you can ask her what you need. Therer are basically four types of requests she knows how to handle (you do not need to specify, she will understand what you need):</p>
+<ul>
+<li>Make a request for information you need from the network.</li>
+<li>Describe a problem you have for which you need help troubleshooting.</li>
+<li>Describe an action you need to perform for which you need a detailed plan.</li>
+<li>Simply make a question for any generic technology question. </li>
+</ul>
+<p>Some initial considerations when asking Anetta:</p>
+<ul>
+<li>Be specific, as specific as possible. The more specific and context you provide in your requests, the higher the changes you will get a good response.</li>
+<li>Over time you will get a sense of how to best make requests. I would suggest to try to follow the approach of the following examples, but feel free to make questions in any form. We are interested in knowing what works and what does not, so your feedback will be very valuable.</li>
+</ul>
+<h4 id="asking-information-about-the-network">Asking information about the network.</h4>
+<p>You can ask virtually any information. There is no specific constraint. Anetta will try to figure out how to obtain the information you request and that will include, as part of the process, identifying the sources for that information, eventually the CLI commands that may need to execute, or if that information happens to be in Prometheus, how to obtain it, and how to analize all this to give you the answer you need. All this will be transparent to you, but it may take some time (optimizing it was not a goal for now). </p>
+<p>See the following example:</p>
+<p><img alt="example 1" src="example_query_1.png" /></p>
+<p>The question is somewhat generic. Asking for a summary of the state of BGP. Anetta's response is correct but may not be what you wanted. That is why it is important to be specific. Note that Anetta had in this case no other information than what is requested, and the ability to query the inventory. Everything else she figured out.</p>
+<p>The following example requires some additional effort:</p>
+<p><img alt="example 2" src="example_query_2.png" /></p>
+<p>The ask in this case is much more specific. It requires Anetta to understand what a VRF is, how to check whether such VRF is configured or not in a router, evaluate which routers have it configured and eventually based on all that, find out the next hop for that specific prefixes in the corresponding routing tables. All that "magic" happens transparently. </p>
+<p>The following example is similar.</p>
+<p><img alt="example 3" src="example_query_3.png" /></p>
+<p>Note that at any moment we are telling Anetta how to obtain the information requested.</p>
+<p>In some cases, they query may require some additional processing of the results, as in the following example:</p>
+<p><img alt="example 4" src="example_query_4.png" /></p>
+<p>No where in the code says how to obtain and/or analyze configurations. This is something Anetta figured out by herself.</p>
+<p>The information requested may also include connectivity verification tests such as the following:</p>
+<p><img alt="example 5" src="example_query_5.png" /></p>
+<p>The questions may include one requested datapoint, or multiple. Anetta will handle equally.</p>
+<p><img alt="example 6" src="example_query_6.png" /></p>
+<p>As I mentioned above, the more specific you are in your request the better. You can add as many details or conditions to your request as needed (potentially)</p>
+<p><img alt="example 7" src="example_query_7.png" /></p>
+<p>Note that when Anetta tries to find the information you need, she will use the data sources available in your environment (those you have enabled in the configuration file). In general if Prometheus is enabled, she will try to find the information there first before using CLI commands or SNMP. The rational is that if the data is there, better leverage it than asking it again from the device. If she cannot find the data requested in Prometheus she will use other methods. Typically, note as well that a request for data which is historic or not real time, will need to be requested to Prometheus, and not via CLI or SNMP. Anetta will take this into account automatically, but if it is a historic request and Prometheus is not enabled you will not get a good response, as in the following example:
+<img alt="example 8" src="example_query_8.png" /></p>
+<h4 id="asking-help-to-troubleshoot-a-network-problem">Asking help to troubleshoot a network problem.</h4>
+<p>You can describe a network problem, and Anetta will help in troubleshooting and identifying the root cause. Again, the more specific you are in describing the problem the higher the chances to get a good outcome. </p>
+<p>There are three ways in which Anetta can troubleshoot a network problem:</p>
+<ul>
+<li>Fully autonomously (typing A when requested): In this case Anetta will completely figure out how to address this problem, and will build and execute a troubleshooting workflow to eventually come up with the answer.</li>
+<li>Guided troubleshooting (typing I when requested): In this case, you can provide guidance about what the first or subsequent steps in the troubleshooting process should be. Your input will influence what she actually looks for next. </li>
+<li>Prescribed troubleshooting (typing N when required): You can be completely prescriptive on what the next step should be, and Anetta will follow entirely your instructions. </li>
+</ul>
+<p>During the troubleshooting process Anetta may find (or believe to find) the/a root cause for the problem. She will request you whether you think this is conclusive enough or she should continue working. The term root cause is always ambiguous, so her interpretation may not be your interpretation, for this reason, if you do not think the answer is good enough, she will continue with further troubleshooting. </p>
+<p>There is a limit on the number of steps for troubleshooting which is configurable in the configuration file. </p>
+<p>In the event that she finds a root cause, the response will be accompanied with a recommendation about how to fix the issue. Note that Anetta will never execute any action nor should be prompted to. It is highly recommended that the credentials given to Anetta to login to the devices be read-only. This technoloy is still reasonably experimental, and Anetta is conceptualized to be a partner to find information, not to act on the network. </p>
+<p>The following is an example of autonomous troubleshooting. The messages in between where you are prompted to specify the type of troubleshooting are eliminated for readability of the image:</p>
+<p><img alt="rca example 1" src="example_rca_1.png" /></p>
+<p>The following is another example of problem troubleshooting: </p>
+<p><img alt="rca example 2" src="example_rca_2.png" /></p>
+<p>A few things to note and explain. While I have set it to be autonomous, you can see I am providing guidance on where to start, in the problem description itself. The reason for this is that otherwise it may find the root cause in the 2nd, 3rd, 4th or later step, and it would not fit in the screen capture.</p>
+<p>Also, you may observe I have provided details on the interfaces where the OSPF adjacency is on each router. This is not fundamentally necessary, but there is one challenge. Sometimes Anetta will need to run a set of CLI commands and analyze them to understand where the problem is, and depending on the case, the output of those commands may be long. We are inherently limited by the maximum prompt window size of the LLM provider that, as of now, is OpenAI's GPT-4 8K tokens. In the process of finding the information it is resonably easy to exceed such limit and get an error. For that reason I provide some additional guidance about what those interfaces are so the search is narrowed down to those, minimizing the output of the CLI operational commands. It is just a trick to work around the LLM limits, which, over time, will become less and less relevant. </p>
+<h4 id="asking-help-to-plan-an-action-in-the-network">Asking help to plan an action in the network.</h4>
+<p>You execute operations and do changes in the network frequently. Some may be already automated via workflow engines, some are probably still manual. In either case, each action requires some planning about what needs to be done, what needs to be verified before and what needs to be verified after to ensure the action executed was a success. All this require some time and effort to plan. Anetta can help you generate this plan with the details you need, in your network context, including those pre- and post-checks. </p>
+<p>The following is an example of it. 
+<img alt="Action planning" src="uc_planning.png" /></p>
+<p>The more details you provide, the more complete the plan will be, as always. The plan is to generate BPMN 2.0 compliant format so you can automatically load it in your workflow automation tool. This is a work in progress item.</p>
+<h4 id="asking-any-technology-protocol-or-technical-question">Asking any technology, protocol or technical question.</h4>
+<p>With the goal of facilitating your job, Anetta can also give you answers to any technical question, protocol related, vendor specific or agnostic question you may need, leveraging her vast networking knowledge. The following is one example:</p>
+<p><img alt="Generic questions" src="example_generic_1.png" /></p>
+<p>I know you do not need Anetta for this, you could simply Google or use ChatGPT for that matter. But given that you may be using Anetta for other use cases or information search, being also able to make these generic questions is simply convenient. </p>
+<hr />
+<h2 id="anetta-insights">Anetta Insights</h2>
+<p>Lots of thinks are happening under the hoods when you make a request to Anetta. They translate into saved time for you as you delegate on those tasks, but they also translate into a number of requests to the LLM provider. The performance of the LLM provider is important for your user experience. The overall latency, or the latency per token are key parameters to understand why responsiveness may not be good. For this reason, some insights are offered to help you understand, as you use Anetta, how is the response time evolving and how the underlying LLM is behaving over time. </p>
+<p>The agent insights panel provides you with some information in this context:</p>
+<p><img alt="Agent insights" src="agent_insights.png" /></p>
+<hr />
+<h2 id="anetta-api">Anetta API</h2>
+<p>Users will frequently interact with Anetta using the conversational web interface, but there are use cases where it may be convenient to programmatically interact with Anetta in order to integrate requests and answers as part of a wider workflow or system.</p>
+<p>In that context, Anetta offers currently a basic REST API that allows users to trigger requests, and collect the responses associated to those requests afterwards asynchronously. </p>
+<p>The v1 of the API offers two calls: </p>
+<p><strong>/api/v1/request</strong></p>
+<p>The intent of this call is to facilitate making a question to Anetta via API. All the different types of use cases supported in the Web UI are supported via API. There is, however, one caveat at the moment. For problem troubleshooting use cases, Anetta conversational workflow offers some interactivity so you can influence or decide the next troubleshooting steps, or simply let it run autonomously. Likewise, Anetta offers you to provide feedback on the "conclusiveness" of the diagnostic provided. At the moment, via API, these options are not available. When a problem troubleshooting request happens via API, it is automatically set in "full autonomous" mode, and will run until it provides a final response. Also, at that time, the response is considered final and there is no check on conclusiveness. This will be improved in the future, but for now, the workflow has been simplified for the API.</p>
+<p>Example: </p>
+<p>Request:</p>
+<pre><code>curl -X GET &quot;http://127.0.0.1:8000/api/v1/request&quot;   
+    -H  &quot;Content-Type: application/json&quot; 
+    -d  '{
+            &quot;request&quot;: &quot;I need to know the memory utilization in vm instance instance-1 in google cloud&quot;
+        }'
+
+</code></pre>
+<p>Response:</p>
+<pre><code>{
+    &quot;request_id&quot;:&quot;1ea68f8441d711eea2011e00fb228358&quot;
+}
+
+</code></pre>
+<p>As you can see above, the request gets a request_id assigned which is provided back in the response.</p>
+<p><strong>/api/v1/response/request_id/</strong></p>
+<p>The intent of this call is to retrieve the results of a previous request, given the request_id that was obtained earlier at request time. Depending on the nature of the request, Anetta may take a few seconds to potentially minutes to provide the answer. This API call can be used at any point in time during that process and will retrieve the "current" state of the request as it progresses through different steps. Once the "state" field in the response is "final", Anetta will have finalized the response (even if potentially there is no response)</p>
+<p>Example:</p>
+<p>Request:</p>
+<pre><code>curl -X GET &quot;http://127.0.0.1:8000/api/v1/response/1ea68f8441d711eea2011e00fb228358/&quot;
+
+</code></pre>
+<p>Response:</p>
+<pre><code>{
+    &quot;request&quot;:&quot;I need to know the memory utilization in vm instance instance-1 in google cloud&quot;,
+    &quot;request_type&quot;:&quot;network_information&quot;,
+    &quot;request_summary&quot;:&quot;The user is requesting information about the memory utilization of a specific vm instance (instance-1) in Google Cloud.&quot;,
+    &quot;num_agents&quot;:1,
+    &quot;response_summary&quot;:&quot;&quot;,
+    &quot;response_detail&quot;:&quot;\nSummary:The memory utilization in the Google Cloud instance 'instance-1' is 1362075648 bytes.\nDetails:The device type is a Google Cloud instance named 'instance-1' located in the 'europe-southwest1-a' zone of the 'smart-bonus-356527' project. The instance ID is '573113634629415'. The IP address is not provided in the data.&quot;,
+    &quot;time_saved&quot;:91,
+    &quot;state&quot;:&quot;final&quot;
+}
+</code></pre>
+<hr />
+<h2 id="anetta-faqs">Anetta FAQs</h2>
+<p><strong>Q: If Anetta uses OpenAI's GPT-4, does it mean my data is not secure and may be incorporated to OpenAIs model?</strong></p>
+<p>A: No. It is important to differentiate between using GPT-4 API and using GPT-4 based ChatGPT. OpenAI has clear different policies in this respect. In <a href="https://openai.com/policies/terms-of-use">OpenAI's terms of use</a> you can find the following in point 3.c:</p>
+<p><em>(c) Use of Content to Improve Services. We do not use Content that you provide to or receive from our API (“API Content”) to develop or improve our Services. We may use Content from Services other than our API (“Non-API Content”) to help develop and improve our Services. You can read more here about how Non-API Content may be used to improve model performance. If you do not want your Non-API Content used to improve Services, you can opt out by filling out this form. Please note that in some cases this may limit the ability of our Services to better address your specific use case.</em></p>
+<p>Requests done via GPT-4 API are secured (SSL encrypted) and simply result in a response generated. None of the data sent via a prompt is kept for any purpose or used to further train or improve the models. That is not the case for ChatGPT ("Non-API Content"), however Anetta does not use GhatGPT.</p>
+<p><strong>Q: Is Anetta an open source project?</strong></p>
+<p>A: No. At the moment, you can download and use it under the license terms stated. Part of the code is naturally visible and other part is not. </p>
+<p><strong>Q: Is there any license fee required to use Anetta?</strong></p>
+<p>A: Not at the moment. Anetta is in an early stage. There may be a license fee in the future, but not at this stage of the development.</p>
+<p><strong>Q: Do I need to pay for OpenAI's API costs?</strong></p>
+<p>A: Yes. As part of Anetta configuration, you have to provide the LLM API Key necessary for Anetta to operate. Cloud based LLMs usually operate on a pay-per-use model. </p>
+<p><strong>Q: What if Anetta does not know how to deal with my network devices?</strong> </p>
+<p>A: Reach out to us so we can explore options to add new vendors to Anetta.</p>
+<p><strong>Q: Sometimes it takes a long time to get answers from Anetta</strong></p>
+<p>A: Anetta uses LLM API calls as the LLM is "her brain". Latency from LLM calls varies depending on network, LLM provider load, length of the query and response from the LLM. Frequently, multiple LLM calls are required to achieve the response you need. The expectation is that over time, the response time will be improving (you can see the evolution in the Anetta Insights). There are also cases where we have opportunity to parallelize tasks that as of now are simply serialized (because the goal was not to optimize response time so far). In some cases it could also be that something went wrong and Anetta is stuck in some bad state. Many errors are handled and you should see notification in the UI but there may be errors that are not handled. In those cases, you should stop and start Anetta.</p>
+<hr />
+<h2 id="license">License</h2>
+<p>SOFTWARE LICENSE AGREEMENT</p>
+<p>ANETTA LICENSE AGREEMENT</p>
+<p>IMPORTANT: By downloading, installing, or using Anetta, you ("the Licensee") agree to be bound by the terms of this License Agreement ("Agreement"). If you do not agree to the terms of this Agreement, do not download, install, or use the Software.</p>
+<ol>
+<li>
+<p>GRANT OF LICENSE:
+Anetta AI hereby grants you a non-transferable, non-exclusive, revocable license to use Anetta subject to the terms outlined in this Agreement.</p>
+</li>
+<li>
+<p>OWNERSHIP:
+The Software is the property of Anetta AI. All rights, title, interest, and intellectual property rights in the Software remain with Anetta AI.</p>
+</li>
+<li>
+<p>USE RESTRICTIONS:</p>
+<ol>
+<li>Non-Commercial Use Only: The Software may be used only for personal, non-commercial purposes.</li>
+<li>No Redistribution: The Software may not be sold, leased, rented, sublicensed, distributed, or otherwise transferred to any third party.</li>
+<li>No Modification: The Software may not be modified, decompiled, disassembled, or reverse engineered.</li>
+</ol>
+</li>
+<li>
+<p>FUTURE CHANGES TO LICENSING:
+Anetta AI reserves the right to modify this Agreement and the licensing model of the Software at any time. This includes, but is not limited to, transitioning from a free license to a paid license. Anetta AI will provide reasonable notice to Licensees before such changes take effect.</p>
+</li>
+<li>
+<p>TERMINATION:
+This Agreement is effective until terminated. Anetta AI can terminate this Agreement at any time if you fail to comply with its terms. Upon termination, you must destroy all copies of the Software.</p>
+</li>
+<li>
+<p>DISCLAIMER OF WARRANTIES:
+The Software is provided "AS IS" without warranty of any kind, express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+</li>
+<li>
+<p>LIMITATION OF LIABILITY:
+In no event shall Anetta AI be liable for any damages, including but not limited to, loss of data, lost profits, or any other incidental or consequential damages, arising out of the use or inability to use the Software.</p>
+</li>
+<li>
+<p>GOVERNING LAW:
+This Agreement is governed by the laws of Spain without regard to its conflicts of law provisions.</p>
+</li>
+<li>
+<p>SEVERABILITY:
+If any provision of this Agreement is held to be unenforceable or invalid for any reason, the remaining provisions shall remain in full force and effect.</p>
+</li>
+<li>
+<p>ENTIRE AGREEMENT:
+This Agreement constitutes the entire agreement between the parties and supersedes all prior or contemporaneous understandings or agreements, written or oral, regarding such subject matter.</p>
+</li>
+</ol>
+<p>By downloading, installing, or using the Software, you agree to abide by the terms of this Agreement.</p>
+<hr />
+<h2 id="feedback-and-community">Feedback and community</h2>
+<p>These are the following ways to reach and discuss about Anetta:</p>
+<p><strong>email:</strong> javier@anetta.ai</p>
+<p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/javier-antich-romaguera/">https://www.linkedin.com/in/javier-antich-romaguera/</a></p>
+<p><strong>Twitter/X:</strong> @AnettaAI</p>
+<p><strong>Discord server:</strong> <a href="https://discord.gg/4k5jt63x">https://discord.gg/4k5jt63x</a></p>
+<p>Particularly to discuss problems, new features, use cases, I suggest to use the Discord server.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.4.3
+Build Date UTC : 2023-09-13 19:19:40.651289+00:00
+-->
