@@ -75,6 +75,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#connectivity-requirements" class="nav-link">Connectivity requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#installing-anetta" class="nav-link">Installing Anetta</a>
               <ul class="nav flex-column">
               </ul>
@@ -197,7 +201,7 @@
 <p><img alt="General info" src="uc_general_info.png" /></p>
 <h3 id="llms-supported">LLMs supported</h3>
 <p>As of the first release, Anetta uses OpenAI's GPT-4 LLM. Tests with GPT-3.5 did not result into good enough results. </p>
-<p>In order to run Anetta you need to have your own OpenAI's API Key which must be configured as part of the configuration file. See Anetta <a href="#anetta-configuration">configuration section</a></p>
+<p>In order to run Anetta you need to have your own OpenAI's API Key which must be configured as part of the configuration file. See Anetta <a href="#anetta-configuration">configuration section</a>. If you do not have an API key from OpenAI, you will need to register in OpenAI and create an API Key <a href="https://platform.openai.com/account/api-keys">here</a></p>
 <p>Work is on-going to incorporate other LLM options such as Google's Palm2 and Antrophic Claude 2. We are evaluating as well the opportunity and need to customize and fine tune a model for our purposes. </p>
 <h3 id="devices-supported">Devices supported</h3>
 <p>Based on the experience with OpenAI's GPT-4 LLM, we have seen she knows well how to deal with the major networking vendors such as Cisco, Juniper, Arista, Nokia. That said, the degree of completeness is still unknown. Your feedback will be extremely valuable to have a better assessment on what works, what doesn't, for which vendors there is better support or limited. </p>
@@ -247,6 +251,19 @@
 <p>As a network, IT or cloud engineer you need to interact with multiple systems throughout the day to get what you need. You may frequently login into network elements to obtain certain information via CLI. You may check in the inventory data you need to get the right responses. You may also check in your network monitoring systems about data or state from the network or cloud. All this requires time, and assumes you know how to deal with all those systems, even more so in a multivendor environment. Anetta is here to help you in all those interactions, potentially releasing you from having to drive all those interactions directly, letting Anetta do it on your behalf.</p>
 <p>Ultimately, Anetta will help you save time, personally, and also save time to your team and organization. </p>
 <hr />
+<h2 id="connectivity-requirements">Connectivity requirements</h2>
+<p>While this information can be extracted from different sections of the document, I think it is worth having a more explicit definition about what type of connectivity is required for Anetta to operate.</p>
+<p>First of all, you need Internet connectivity (to Docker Hub) to download the docker container, and you need connectivity with Github to download some additional auxiliary files as explained in the next section. </p>
+<p>Once installed, Anetta will require the following communication channels to be available:</p>
+<ul>
+<li>You need connectivity towards the LLM: At the moment, that means HTTPS access to OpenAI API (<code>https://api.openai.com</code>)</li>
+<li>If Anetta is going to interact with network elements, she will need SSH connectivity with the network devices and/or SNMP reachability.</li>
+<li>If Anetta is going to interact with a Prometheus instance, she will require HTTP connectivity with the IP address and port where your Prometheus server is listening.</li>
+<li>If Anetta is going to interact with VMs or servers, she will need SSH connectivity with the VMs or servers.</li>
+<li>If Anetta is going to interact with Google Cloud Platform resources, she will need reachability towards GCP API (<code>https://monitoring.googleapis.com</code>)</li>
+<li>If Anetta is going to interact with an external inventory service, she will need HTTP reachability.</li>
+<li>In order to interact with you, if you are not installing it in your own laptop but on a different server, you need to have HTTP connectivity with Anetta's Web GUI.</li>
+</ul>
 <h2 id="installing-anetta">Installing Anetta</h2>
 <p>Anetta is packaged as a Docker Container. It is necessary that you have installed docker in your platform.</p>
 <p>You can download Anetta's docker image from Docker Hub:</p>
@@ -804,5 +821,5 @@ This Agreement constitutes the entire agreement between the parties and supersed
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-09-13 19:40:27.898027+00:00
+Build Date UTC : 2023-09-15 08:24:29.734194+00:00
 -->
