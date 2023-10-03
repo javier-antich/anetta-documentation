@@ -4,26 +4,26 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
-        <link rel="canonical" href="http://anetta.ai/">
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Anetta documentation</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="canonical" href="http://anetta.ai/release_1_0_0/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Release_1_0_0 - Anetta documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap.min.js" defer></script>
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">Anetta documentation</a>
+                <a class="navbar-brand" href="..">Anetta documentation</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -33,11 +33,11 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem active">
-                                <a href="." class="nav-link">Latest_Relese_1_1_0</a>
-                            </li>
                             <li class="navitem">
-                                <a href="release_1_0_0/" class="nav-link">Release_1_0_0</a>
+                                <a href=".." class="nav-link">Latest_Relese_1_1_0</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Release_1_0_0</a>
                             </li>
                         </ul>
 
@@ -48,12 +48,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
+                                <a rel="prev" href=".." class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="release_1_0_0/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -77,10 +77,6 @@
             
             <li class="nav-item" data-level="1"><a href="#welcome-to-anetta-documentation" class="nav-link">Welcome to Anetta Documentation</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#changes-from-previous-release" class="nav-link">Changes from previous release</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
             <li class="nav-item" data-level="2"><a href="#what-is-anetta" class="nav-link">What is Anetta?</a>
               <ul class="nav flex-column">
               </ul>
@@ -145,18 +141,8 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="welcome-to-anetta-documentation">Welcome to Anetta Documentation</h1>
-<p>Latest Release (Release 1.1.0 - Oct 3rd 2023)</p>
+<p>Release 1.0.0 - Sept 26th 2023</p>
 <p>AI compiled knowledge at the service of network and cloud engineers</p>
-<h2 id="changes-from-previous-release">Changes from previous release</h2>
-<p>Two key new capabilities have been added from release 1.0.0 that justify a change to 1.1.0:</p>
-<ul>
-<li>
-<p>Now new LLM models can be used with the integration of OpenRouter.ai</p>
-</li>
-<li>
-<p>A new mode exists that will dynamically choose between OpenAI gpt-4 and gpt-4-32k for large prompt requests.</p>
-</li>
-</ul>
 <hr />
 <h2 id="what-is-anetta">What is Anetta?</h2>
 <p>Anetta is an acronym that refers to: 
@@ -206,34 +192,28 @@
 <ol>
 <li>You need certain information from one device. You can ask Anetta to find it for you.</li>
 </ol>
-<p><img alt="Simple network query" src="uc_simple_query.png" /></p>
+<p><img alt="Simple network query" src="../uc_simple_query.png" /></p>
 <ol>
 <li>You need certain information from multiple devices, which may require a complex search given specific constraints. You can ask Anetta to find that information for you.</li>
 </ol>
-<p><img alt="Multiple search query" src="uc_multiple_search.png" /></p>
+<p><img alt="Multiple search query" src="../uc_multiple_search.png" /></p>
 <ol>
 <li>You have a problem in the network and you need to find the root cause. You can ask Anetta to diagnose the problem for you. </li>
 </ol>
-<p><img alt="Troubleshooting" src="uc_troubleshooting.png" /></p>
+<p><img alt="Troubleshooting" src="../uc_troubleshooting.png" /></p>
 <ol>
 <li>You have an action you need to execute and you need to plan how to do it. Some of those tasks may require multiple steps, including pre- and post-checks. You can ask Anetta to generate that detailed plan for you.</li>
 </ol>
-<p><img alt="Action planning" src="uc_planning.png" /></p>
+<p><img alt="Action planning" src="../uc_planning.png" /></p>
 <p>*Note: The rendering of action plans in the web UI do not look good (yet). That is why the capture here is from a CLI version. </p>
 <ol>
 <li>You have simply a technology, protocol related question. Anetta may give you quickly an answer to any such question.</li>
 </ol>
-<p><img alt="General info" src="uc_general_info.png" /></p>
+<p><img alt="General info" src="../uc_general_info.png" /></p>
 <h3 id="llms-supported">LLMs supported</h3>
-<p>As of this release there is a broad set of LLMs that can be used with Anetta. With OpenRouter.ai integration, it is possible to choose other models than OpenAI gpt-4 such as OpenAI gpt-4-32k for large context, but also Anthropic Claude-2 with a context window of 100K tokens. OpenRouter.ai supports a large number of models. They can be configured in the Anetta configuration but that does not mean they will work well. So far, the models tested are the following:</p>
-<ul>
-<li>OpenAI gpt-4 and gpt-4-32k: They produce good results consistently. The most powerful so far</li>
-<li>Anthropic Claude-2: Produces good results but testing has not been too comprehensive yet. </li>
-</ul>
-<p>Any other model offered by OpenRouter.ai has not been tested. Feel free to try them, but we do not know how well or badly they may behave. </p>
+<p>As of the first release, Anetta uses OpenAI's GPT-4 LLM. Tests with GPT-3.5 did not result into good enough results. </p>
 <p>In order to run Anetta you need to have your own OpenAI's API Key which must be configured as part of the configuration file. See Anetta <a href="#anetta-configuration">configuration section</a>. If you do not have an API key from OpenAI, you will need to register in OpenAI and create an API Key <a href="https://platform.openai.com/account/api-keys">here</a></p>
-<p>If you are using Openrouter then you need to make sure you create an account in <a href="https://openrouter.ai">OpenRouter.ai</a>. At the moment, it is a pre-paid service so you will need to have some credit added in order to be able to make use of the API services. </p>
-<p>Work is on-going to test LLM options such as Google's Palm2 and others. We are evaluating as well the opportunity and need to customize and fine tune a model for our purposes. </p>
+<p>Work is on-going to incorporate other LLM options such as Google's Palm2 and Antrophic Claude 2. We are evaluating as well the opportunity and need to customize and fine tune a model for our purposes. </p>
 <h3 id="devices-supported">Devices supported</h3>
 <p>Based on the experience with OpenAI's GPT-4 LLM, we have seen she knows well how to deal with the major networking vendors such as Cisco, Juniper, Arista, Nokia. That said, the degree of completeness is still unknown. Your feedback will be extremely valuable to have a better assessment on what works, what doesn't, for which vendors there is better support or limited. </p>
 <p>Anetta also interacts quite well with Linux servers or VMs as well as API based interactions with Prometheus and graphQL based Inventory systems. </p>
@@ -298,7 +278,7 @@
 <h2 id="installing-anetta">Installing Anetta</h2>
 <p>Anetta is packaged as a Docker Container. It is necessary that you have installed docker in your platform.</p>
 <p>You can download Anetta's docker image from Docker Hub:</p>
-<pre><code>docker pull javierantich/anetta:latest
+<pre><code>docker pull javierantich/anetta-1-0-0:v1.0.0
 </code></pre>
 <p>In addition, you have to download a few files from Github to make sure it works. 
 Download or clone the following Github repo in the local folder of your choice where you will run Anetta</p>
@@ -314,29 +294,27 @@ Download or clone the following Github repo in the local folder of your choice w
 <pre><code>docker compose up
 </code></pre>
 <p>This will create the container, load the corresponding configuration files and initiate Anetta. At this point, you should have anetta running.</p>
-<pre><code>javier@Javiers-MBP anetta_test % docker compose up
+<pre><code>javier@Javiers-MBP anetta_test % docker compose up                           
 [+] Running 1/0
- ⠿ Container anetta  Created                                                                                                                                                                           0.0s
+ ⠿ Container anetta  Created                                                                                                                                0.0s
 Attaching to anetta
 anetta  | Base directory: /anetta
 anetta  | Base directory: /anetta
 anetta  | Performing system checks...
 anetta  | 
 anetta  | System check identified no issues (0 silenced).
-anetta  | October 03, 2023 - 17:51:45
+anetta  | September 13, 2023 - 13:16:27
 anetta  | Django version 4.2.2, using settings 'core.settings'
 anetta  | Starting ASGI/Daphne version 4.0.0 development server at http://0.0.0.0:8000/
 anetta  | Quit the server with CONTROL-C.
 anetta  | Extracting from the asgi fle
-
-
 
 </code></pre>
 <p>And it should be possible to use the web interface at <code>http://127.0.0.1:8000</code></p>
 <hr />
 <h2 id="anetta-architecture">Anetta Architecture</h2>
 <p>The following diagram captures Anetta logical architecture:</p>
-<p><img alt="Anetta architecture" src="anetta-architecture.png" /></p>
+<p><img alt="Anetta architecture" src="../anetta-architecture.png" /></p>
 <p>Anetta follows a plug-in based architecture where specific plug-ins are developed for different types of sources. The following are the currently available plug-ins:</p>
 <ul>
 <li>
@@ -378,32 +356,13 @@ anetta  | Extracting from the asgi fle
 <p>Anetta behavior is driven by a configuraiton file <code>anetta_config.yml</code>. This YAML file contain the key directives that enable Anetta. Let's review them one by one. The configuration file has also some guidance on each. Every time a new conversation starts with Anetta or Anetta is reloaded, the configuration will be read and parameters incorporated. In case you need to change any parameter in the configuration file, you will need to start a new conversation or restart Anetta. For practical purposes, every API request is equivalent to a new conversation, so any change in the configuration file will be incorporated before any API request. </p>
 <pre><code>
 #LLM information
+#At the moment only gpt-4 is available. 
 llm:
   model: 'gpt-4'
   openai_key: '&lt;your OpenAI API key&gt;'
-  #the following parameters are optional. Add them if you are using Openrouter.ai
-  #openrouter: 'yes'
-  #choose the model from those supported by OpenRouter.ai
-  #openrouter_model: 'anthropic/claude-2'
-  #openrouter_key: 'your openrouter api key'
-  #openrouter_endpoint: 'https://openrouter.ai/api/v1'
-  #if you want to change the OpenAI endpoint, modify the following parameter. Otherwise, leave it as default.
-  openai_endpoint: 'https://api.openai.com/v1'
 
 </code></pre>
-<p>If openrouter is not enabled, then openai_key is a mandatory field. In that case, if the <code>openai_key</code>parameter is not populated or not present, Anetta will fail to function. 
-When <code>openrouter</code> attribute is added and set to <code>yes</code> it is necessary to provide the corresponding API key in the parameter <code>openrouter_key</code>. If it is not provided, the configuration will not load properly and Anetta will not be oeprational. Select the model for <code>openrouter_model</code> from those supported by openrouter. You can see the complete list <a href="https://openrouter.ai/docs#models">here</a>. As previously stated, for now the following are the only ones which we have reasonable confidence in their capabilities:</p>
-<ul>
-<li>openai/gpt-4</li>
-<li>openai/gpt-4-32k</li>
-<li>anthropic/claude-2</li>
-</ul>
-<p>One interesting option for model configuration is the following:</p>
-<ul>
-<li>openai/gpt-4-auto</li>
-</ul>
-<p>With this option, Anetta will use <code>gpt-4</code> unless the prompt size is larger than the maximum window of 8K tokens. In that case it will dynamically switch to <code>gpt-4-32k</code> for that request. This way the chances of exceeding the maximum prompt size are minimized while at the same time keeping the LLM cost lower (<code>gpt-4-32k</code> API call cost is at the moment 2x <code>gpt-4</code>'s)</p>
-<p>You can now also set the API endpoint for OpenRouter and OpenAI, if required.</p>
+<p>At the moment, only GPT-4 is supported. No other model option is supported at this point, so modifying the model parameter will not have an effect. However, if the <code>openai_key</code>parameter is not populated or not present, Anetta will fail to function. It is a mandatory parameter.</p>
 <pre><code>#operation
 operation:
   max_steps: 10
@@ -606,7 +565,7 @@ password: noc1234!
 <p>Interacting with Anetta is based on conversations. You can create a new conversation by clicking in <code>Your agent &gt; New Conversation</code> in the left menu. At the momnent there is no conversation history, once a new conversation is created, the previous one dissapears. </p>
 <p>On the left menu you can also find access to <code>Agent Insights</code>. This is described in more detail in the <a href="#anetta-insights">Anetta insights</a> section</p>
 <p>Once you click on <code>New Conversation</code> you will be promtped to provide a description of your request in plain English. The following is an example of a request in a conversation. </p>
-<p><img alt="Conversation example" src="sample_conversation.png" /></p>
+<p><img alt="Conversation example" src="../sample_conversation.png" /></p>
 <p>Once you provide your input and press <code>Enter</code> or click <code>Reply</code> button, Anetta will start figuring out what kind of request you made and how to answer. In some cases, as you will see below, some additional input will be required. In all cases, Anetta will end with an estimation of the saved time, based on the settings defined in the configuration file. 
 Once a response is provided, you can continue with new requests or start a new conversation. At the moment, there is no fundamental difference as there is no specific "memory" within a conversation relative to previous requests yet (this is planned for the future).</p>
 <h3 id="using-anetta-examples">Using Anetta. Examples</h3>
@@ -625,25 +584,25 @@ Once a response is provided, you can continue with new requests or start a new c
 <h4 id="asking-information-about-the-network">Asking information about the network.</h4>
 <p>You can ask virtually any information. There is no specific constraint. Anetta will try to figure out how to obtain the information you request and that will include, as part of the process, identifying the sources for that information, eventually the CLI commands that may need to execute, or if that information happens to be in Prometheus, how to obtain it, and how to analize all this to give you the answer you need. All this will be transparent to you, but it may take some time (optimizing it was not a goal for now). </p>
 <p>See the following example:</p>
-<p><img alt="example 1" src="example_query_1.png" /></p>
+<p><img alt="example 1" src="../example_query_1.png" /></p>
 <p>The question is somewhat generic. Asking for a summary of the state of BGP. Anetta's response is correct but may not be what you wanted. That is why it is important to be specific. Note that Anetta had in this case no other information than what is requested, and the ability to query the inventory. Everything else she figured out.</p>
 <p>The following example requires some additional effort:</p>
-<p><img alt="example 2" src="example_query_2.png" /></p>
+<p><img alt="example 2" src="../example_query_2.png" /></p>
 <p>The ask in this case is much more specific. It requires Anetta to understand what a VRF is, how to check whether such VRF is configured or not in a router, evaluate which routers have it configured and eventually based on all that, find out the next hop for that specific prefixes in the corresponding routing tables. All that "magic" happens transparently. </p>
 <p>The following example is similar.</p>
-<p><img alt="example 3" src="example_query_3.png" /></p>
+<p><img alt="example 3" src="../example_query_3.png" /></p>
 <p>Note that at any moment we are telling Anetta how to obtain the information requested.</p>
 <p>In some cases, they query may require some additional processing of the results, as in the following example:</p>
-<p><img alt="example 4" src="example_query_4.png" /></p>
+<p><img alt="example 4" src="../example_query_4.png" /></p>
 <p>No where in the code says how to obtain and/or analyze configurations. This is something Anetta figured out by herself.</p>
 <p>The information requested may also include connectivity verification tests such as the following:</p>
-<p><img alt="example 5" src="example_query_5.png" /></p>
+<p><img alt="example 5" src="../example_query_5.png" /></p>
 <p>The questions may include one requested datapoint, or multiple. Anetta will handle equally.</p>
-<p><img alt="example 6" src="example_query_6.png" /></p>
+<p><img alt="example 6" src="../example_query_6.png" /></p>
 <p>As I mentioned above, the more specific you are in your request the better. You can add as many details or conditions to your request as needed (potentially)</p>
-<p><img alt="example 7" src="example_query_7.png" /></p>
+<p><img alt="example 7" src="../example_query_7.png" /></p>
 <p>Note that when Anetta tries to find the information you need, she will use the data sources available in your environment (those you have enabled in the configuration file). In general if Prometheus is enabled, she will try to find the information there first before using CLI commands or SNMP. The rational is that if the data is there, better leverage it than asking it again from the device. If she cannot find the data requested in Prometheus she will use other methods. Typically, note as well that a request for data which is historic or not real time, will need to be requested to Prometheus, and not via CLI or SNMP. Anetta will take this into account automatically, but if it is a historic request and Prometheus is not enabled you will not get a good response, as in the following example:
-<img alt="example 8" src="example_query_8.png" /></p>
+<img alt="example 8" src="../example_query_8.png" /></p>
 <h4 id="asking-help-to-troubleshoot-a-network-problem">Asking help to troubleshoot a network problem.</h4>
 <p>You can describe a network problem, and Anetta will help in troubleshooting and identifying the root cause. Again, the more specific you are in describing the problem the higher the chances to get a good outcome. </p>
 <p>There are three ways in which Anetta can troubleshoot a network problem:</p>
@@ -656,26 +615,25 @@ Once a response is provided, you can continue with new requests or start a new c
 <p>There is a limit on the number of steps for troubleshooting which is configurable in the configuration file. </p>
 <p>In the event that she finds a root cause, the response will be accompanied with a recommendation about how to fix the issue. Note that Anetta will never execute any action nor should be prompted to. It is highly recommended that the credentials given to Anetta to login to the devices be read-only. This technoloy is still reasonably experimental, and Anetta is conceptualized to be a partner to find information, not to act on the network. </p>
 <p>The following is an example of autonomous troubleshooting. The messages in between where you are prompted to specify the type of troubleshooting are eliminated for readability of the image:</p>
-<p><img alt="rca example 1" src="example_rca_1.png" /></p>
+<p><img alt="rca example 1" src="../example_rca_1.png" /></p>
 <p>The following is another example of problem troubleshooting: </p>
-<p><img alt="rca example 2" src="example_rca_2.png" /></p>
+<p><img alt="rca example 2" src="../example_rca_2.png" /></p>
 <p>A few things to note and explain. While I have set it to be autonomous, you can see I am providing guidance on where to start, in the problem description itself. The reason for this is that otherwise it may find the root cause in the 2nd, 3rd, 4th or later step, and it would not fit in the screen capture.</p>
 <p>Also, you may observe I have provided details on the interfaces where the OSPF adjacency is on each router. This is not fundamentally necessary, but there is one challenge. Sometimes Anetta will need to run a set of CLI commands and analyze them to understand where the problem is, and depending on the case, the output of those commands may be long. We are inherently limited by the maximum prompt window size of the LLM provider that, as of now, is OpenAI's GPT-4 8K tokens. In the process of finding the information it is resonably easy to exceed such limit and get an error. For that reason I provide some additional guidance about what those interfaces are so the search is narrowed down to those, minimizing the output of the CLI operational commands. It is just a trick to work around the LLM limits, which, over time, will become less and less relevant. </p>
-<p>If you use OpenRouter with the model <code>openai/gpt-4-auto</code> Anetta will use the 32k window model where required, minimizing the chances that the maximum prompt size is exceeded, as in the example above.</p>
 <h4 id="asking-help-to-plan-an-action-in-the-network">Asking help to plan an action in the network.</h4>
 <p>You execute operations and do changes in the network frequently. Some may be already automated via workflow engines, some are probably still manual. In either case, each action requires some planning about what needs to be done, what needs to be verified before and what needs to be verified after to ensure the action executed was a success. All this require some time and effort to plan. Anetta can help you generate this plan with the details you need, in your network context, including those pre- and post-checks. </p>
 <p>The following is an example of it. 
-<img alt="Action planning" src="uc_planning.png" /></p>
+<img alt="Action planning" src="../uc_planning.png" /></p>
 <p>The more details you provide, the more complete the plan will be, as always. The plan is to generate BPMN 2.0 compliant format so you can automatically load it in your workflow automation tool. This is a work in progress item.</p>
 <h4 id="asking-any-technology-protocol-or-technical-question">Asking any technology, protocol or technical question.</h4>
 <p>With the goal of facilitating your job, Anetta can also give you answers to any technical question, protocol related, vendor specific or agnostic question you may need, leveraging her vast networking knowledge. The following is one example:</p>
-<p><img alt="Generic questions" src="example_generic_1.png" /></p>
+<p><img alt="Generic questions" src="../example_generic_1.png" /></p>
 <p>I know you do not need Anetta for this, you could simply Google or use ChatGPT for that matter. But given that you may be using Anetta for other use cases or information search, being also able to make these generic questions is simply convenient. </p>
 <hr />
 <h2 id="anetta-insights">Anetta Insights</h2>
 <p>Lots of things are happening under the hoods when you make a request to Anetta. They translate into saved time for you as you delegate on those tasks, but they also translate into a number of requests to the LLM provider. The performance of the LLM provider is important for your user experience. The overall latency, or the latency per token are key parameters to understand why responsiveness may not be good. For this reason, some insights are offered to help you understand, as you use Anetta, how is the response time evolving and how the underlying LLM is behaving over time. </p>
 <p>The agent insights panel provides you with some information in this context:</p>
-<p><img alt="Agent insights" src="agent_insights.png" /></p>
+<p><img alt="Agent insights" src="../agent_insights.png" /></p>
 <hr />
 <h2 id="anetta-api">Anetta API</h2>
 <p>Users will frequently interact with Anetta using the conversational web interface, but there are use cases where it may be convenient to programmatically interact with Anetta in order to integrate requests and answers as part of a wider workflow or system.</p>
@@ -802,11 +760,11 @@ This Agreement constitutes the entire agreement between the parties and supersed
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js" defer></script>
-        <script src="search/main.js" defer></script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -871,8 +829,3 @@ This Agreement constitutes the entire agreement between the parties and supersed
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.4.3
-Build Date UTC : 2023-10-03 17:56:23.442171+00:00
--->
