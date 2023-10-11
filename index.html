@@ -34,10 +34,10 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem active">
-                                <a href="." class="nav-link">Latest_Relese_1_1_0</a>
+                                <a href="." class="nav-link">Latest_Relese_1_1_X</a>
                             </li>
                             <li class="navitem">
-                                <a href="release_1_0_0/" class="nav-link">Release_1_0_0</a>
+                                <a href="release_1_0_0/" class="nav-link">Release_1_0_X</a>
                             </li>
                         </ul>
 
@@ -145,9 +145,28 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="welcome-to-anetta-documentation">Welcome to Anetta Documentation</h1>
-<p>Latest Release (Release 1.1.0 - Oct 3rd 2023)</p>
+<p>Latest Release (Release 1.1.1 - Oct 11th 2023)</p>
 <p>AI compiled knowledge at the service of network and cloud engineers</p>
 <h2 id="changes-from-previous-release">Changes from previous release</h2>
+<h3 id="new-in-release-111">New in Release 1.1.1</h3>
+<p>Two changes have been included:</p>
+<ul>
+<li>
+<p>Due to some components are c-compiled, now separate docker containers are available for arm64 and amd64 (i.e. intel x86) architectures. You can find the latest version for each architecture always in the following containers in docker hub:</p>
+<ul>
+<li>Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest</li>
+<li>Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest</li>
+</ul>
+</li>
+</ul>
+<p>Alternatively, the version specific containers will also be available:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-1-1-1-arm64:v1.1.1
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-1-1-1-amd64:v.1.1.1
+</code></pre>
+<ul>
+<li>In order to run Anetta in a separate server than your laptop, now a new parameter is added to the <code>docker-compose.yml</code> file to specify the allowed IP addresses, where you should include which IP addresses you want Anetta to run on. </li>
+</ul>
+<h3 id="new-in-release-110">New in Release 1.1.0</h3>
 <p>Two key new capabilities have been added from release 1.0.0 that justify a change to 1.1.0:</p>
 <ul>
 <li>
@@ -287,7 +306,7 @@
 <p>First of all, you need Internet connectivity (to Docker Hub) to download the docker container, and you need connectivity with Github to download some additional auxiliary files as explained in the next section. </p>
 <p>Once installed, Anetta will require the following communication channels to be available:</p>
 <ul>
-<li>You need connectivity towards the LLM: At the moment, that means HTTPS access to OpenAI API (<code>https://api.openai.com</code>)</li>
+<li>You need connectivity towards the LLM: At the moment, that means HTTPS access to OpenAI API (<code>https://api.openai.com</code>) or towards Openrouter API endpoint (<code>https://openrouter.ai/api/v1</code>)</li>
 <li>If Anetta is going to interact with network elements, she will need SSH connectivity with the network devices and/or SNMP reachability.</li>
 <li>If Anetta is going to interact with a Prometheus instance, she will require HTTP connectivity with the IP address and port where your Prometheus server is listening.</li>
 <li>If Anetta is going to interact with VMs or servers, she will need SSH connectivity with the VMs or servers.</li>
@@ -297,20 +316,33 @@
 </ul>
 <h2 id="installing-anetta">Installing Anetta</h2>
 <p>Anetta is packaged as a Docker Container. It is necessary that you have installed docker in your platform.</p>
-<p>You can download Anetta's docker image from Docker Hub:</p>
-<pre><code>docker pull javierantich/anetta:latest
+<p>You can download Anetta's docker image from Docker Hub:
+Depending on the hardware platform you are running, you should download the right image:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest
+</code></pre>
+<p>Example for arm64:</p>
+<pre><code>docker pull javierantich/anetta-arm64:latest
 </code></pre>
 <p>In addition, you have to download a few files from Github to make sure it works. 
 Download or clone the following Github repo in the local folder of your choice where you will run Anetta</p>
 <pre><code>https://github.com/javier-antich/anetta-install
 </code></pre>
-<p>Please, follow carefully the next 3 steps:</p>
+<p>Please, follow carefully the next 4 steps:</p>
 <ul>
 <li>Make sure you edit the configuration file (<code>anetta_config.yml</code>), see the Anetta <a href="#anetta-configuration">configuration section</a> for details on what needs to be edited. </li>
 <li>Also, make sure you populate the inventory (<code>inventory.yml</code>) with the devices you are interested Anetta to interact with. </li>
 <li>Last but not least, if you are planning for Anetta to interact with your Google Cloud Platform API, you need to make sure you obtain the JSON file with the key for a service account in the Google Cloud project of interest, and place that file in the folder with the name <code>gcp_service_account_credentials.json</code>. This is necessary for Anetta to be able to login in the API and make queries.</li>
+<li>Edit the <code>docker-compose.yml</code> file to make sure the following two parameters are properly set:<ul>
+<li><code>image:</code>: set it to the one corresponding to the architecture you run and image you downloaded.</li>
 </ul>
-<p>Once you have the Docker image downloaded, run the following command from the folder where you downloaded and edited the configuration files:</p>
+</li>
+</ul>
+<pre><code>    environment:
+      - ALLOWED_HOSTS=127.0.0.1,192.168.10.138
+</code></pre>
+<p>Set the <code>ALLOWED_HOSTS</code> with the IP address of your server where you want Anetta to run, if you want to to respond to queries to the server IP address.</p>
+<p>Once you have the Docker image downloaded and compose file edited, run the following command from the folder where you downloaded and edited the configuration files:</p>
 <pre><code>docker compose up
 </code></pre>
 <p>This will create the container, load the corresponding configuration files and initiate Anetta. At this point, you should have anetta running.</p>
@@ -724,6 +756,9 @@ Once a response is provided, you can continue with new requests or start a new c
 <p>A: No. It is important to differentiate between using GPT-4 API and using GPT-4 based ChatGPT. OpenAI has clear different policies in this respect. In <a href="https://openai.com/policies/terms-of-use">OpenAI's terms of use</a> you can find the following in point 3.c:</p>
 <p><em>(c) Use of Content to Improve Services. We do not use Content that you provide to or receive from our API (“API Content”) to develop or improve our Services. We may use Content from Services other than our API (“Non-API Content”) to help develop and improve our Services. You can read more here about how Non-API Content may be used to improve model performance. If you do not want your Non-API Content used to improve Services, you can opt out by filling out this form. Please note that in some cases this may limit the ability of our Services to better address your specific use case.</em></p>
 <p>Requests done via GPT-4 API are secured (SSL encrypted) and simply result in a response generated. None of the data sent via a prompt is kept for any purpose or used to further train or improve the models. That is not the case for ChatGPT ("Non-API Content"), however Anetta does not use GhatGPT.</p>
+<p>Similarly, for OpenRouter.ai, their <a href="https://openrouter.ai/privacy">privacy policy</a> states clearly in section 1:</p>
+<p><em>...While we do not store the inputs and outputs for each request, we do store metadata about them, such as size and model request latency.</em></p>
+<p>There is no use or storage of the actual prompts or responses, other than statistical use of size of the requests/responses and latency associated to the queries.</p>
 <p><strong>Q: Is Anetta an open source project?</strong></p>
 <p>A: No. At the moment, you can download and use it under the license terms stated. Part of the code is naturally visible and other part is not. </p>
 <p><strong>Q: Is there any license fee required to use Anetta?</strong></p>
@@ -874,5 +909,5 @@ This Agreement constitutes the entire agreement between the parties and supersed
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-10-03 17:56:23.442171+00:00
+Build Date UTC : 2023-10-11 09:10:30.596841+00:00
 -->
