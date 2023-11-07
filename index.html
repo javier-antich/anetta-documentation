@@ -147,8 +147,18 @@
 <h1 id="welcome-to-anetta-documentation">Welcome to Anetta Documentation</h1>
 <p><a href="https://www.anetta.ai"><img alt="Anetta-logo" src="anetta-ai.jpg" /></a></p>
 <p><strong>AI compiled knowledge at the service of network and cloud engineers</strong></p>
-<p><strong>Latest Release (Release 1.1.1 - Oct 11th 2023)</strong></p>
+<p><strong>Latest Release (Release 1.2.0 - Nov 7th 2023)</strong></p>
 <h2 id="changes-from-previous-release">Changes from previous release</h2>
+<h3 id="new-in-release-120">New in Release 1.2.0</h3>
+<p>One two main change has been included:</p>
+<ul>
+<li>
+<p>There is now "native" support for newer OpenAI models. Before, only gpt-4 was supported. Any other model was only accessible via OpenRouter interface. Now, with Nov 6th announcement, new models are available via API, in particular GPT-4-Turbo. It is now available with the model option <code>gpt-4-1106-preview</code> . With this model 128K token prompt is available as well as it is much faster than its predecessors, at 1/3rd of the price, while theoretically maintaining the same level of knowledge.</p>
+</li>
+<li>
+<p>Updates on the docker compose file allow running Anetta with a proxy server if required.</p>
+</li>
+</ul>
 <h3 id="new-in-release-111">New in Release 1.1.1</h3>
 <p>Two changes have been included:</p>
 <ul>
@@ -245,9 +255,9 @@
 </ol>
 <p><img alt="General info" src="uc_general_info.png" /></p>
 <h3 id="llms-supported">LLMs supported</h3>
-<p>As of this release there is a broad set of LLMs that can be used with Anetta. With OpenRouter.ai integration, it is possible to choose other models than OpenAI gpt-4 such as OpenAI gpt-4-32k for large context, but also Anthropic Claude-2 with a context window of 100K tokens. OpenRouter.ai supports a large number of models. They can be configured in the Anetta configuration but that does not mean they will work well. So far, the models tested are the following:</p>
+<p>As of this release there is a broad set of LLMs that can be used with Anetta. With OpenRouter.ai integration, it is possible to choose other models than OpenAI gpt-4 such as OpenAI gpt-4-32k for large context or the newly released GPT-4-Turbo (<code>gpt-4-1106-preview</code>), but also Anthropic Claude-2 with a context window of 100K tokens. OpenRouter.ai supports a large number of models. They can be configured in the Anetta configuration but that does not mean they will work well. So far, the models tested are the following:</p>
 <ul>
-<li>OpenAI gpt-4 and gpt-4-32k: They produce good results consistently. The most powerful so far</li>
+<li>OpenAI gpt-4, gpt-4-32k and gpt-4-1106-preview (aka GPT-4-Turbo with 128K window size): They produce good results consistently. The most powerful so far</li>
 <li>Anthropic Claude-2: Produces good results but testing has not been too comprehensive yet. </li>
 </ul>
 <p>Any other model offered by OpenRouter.ai has not been tested. Feel free to try them, but we do not know how well or badly they may behave. </p>
@@ -340,9 +350,14 @@ Download or clone the following Github repo in the local folder of your choice w
 </li>
 </ul>
 <pre><code>    environment:
-      - ALLOWED_HOSTS=127.0.0.1,192.168.10.138
+      - ALLOWED_HOSTS=127.0.0.1,localhost,192.168.10.138
 </code></pre>
 <p>Set the <code>ALLOWED_HOSTS</code> with the IP address of your server where you want Anetta to run, if you want to to respond to queries to the server IP address.</p>
+<p>If you need Anetta to reach internet via a proxy server, uncommend and fill the following parameters:</p>
+<pre><code>      #- HTTP_PROXY=http://your.proxy.server:port
+      #- HTTPS_PROXY=https://your.proxy.server:port
+      #- NO_PROXY=localhost,127.0.0.1  
+</code></pre>
 <p>Once you have the Docker image downloaded and compose file edited, run the following command from the folder where you downloaded and edited the configuration files:</p>
 <pre><code>docker compose up
 </code></pre>
@@ -425,7 +440,14 @@ llm:
 
 </code></pre>
 <p>If openrouter is not enabled, then openai_key is a mandatory field. In that case, if the <code>openai_key</code>parameter is not populated or not present, Anetta will fail to function. 
-When <code>openrouter</code> attribute is added and set to <code>yes</code> it is necessary to provide the corresponding API key in the parameter <code>openrouter_key</code>. If it is not provided, the configuration will not load properly and Anetta will not be oeprational. Select the model for <code>openrouter_model</code> from those supported by openrouter. You can see the complete list <a href="https://openrouter.ai/docs#models">here</a>. As previously stated, for now the following are the only ones which we have reasonable confidence in their capabilities:</p>
+The <code>model</code> field refers to the OpenAI model that will be used natively (not via OpenRouter). Options for this parameter: </p>
+<ul>
+<li>gpt-4</li>
+<li>gpt-4-32k (you need to have an account with access to this model)</li>
+<li>gpt-4-1106-preview (new OpenAI model announced on Nov 6th that corresponds to GPT-4-Turbo)</li>
+</ul>
+<p>GPT-4-Turbo is the fastest, cheapest and with longest context window. It is the recommended one at this point.</p>
+<p>When <code>openrouter</code> attribute is added and set to <code>yes</code> it is necessary to provide the corresponding API key in the parameter <code>openrouter_key</code>. If it is not provided, the configuration will not load properly and Anetta will not be oeprational. Select the model for <code>openrouter_model</code> from those supported by openrouter. You can see the complete list <a href="https://openrouter.ai/docs#models">here</a>. As previously stated, for now the following are the only ones which we have reasonable confidence in their capabilities:</p>
 <ul>
 <li>openai/gpt-4</li>
 <li>openai/gpt-4-32k</li>
@@ -910,5 +932,5 @@ This Agreement constitutes the entire agreement between the parties and supersed
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-10-11 09:25:36.786047+00:00
+Build Date UTC : 2023-11-07 11:54:30.094522+00:00
 -->
