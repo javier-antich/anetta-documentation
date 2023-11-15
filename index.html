@@ -147,8 +147,29 @@
 <h1 id="welcome-to-anetta-documentation">Welcome to Anetta Documentation</h1>
 <p><a href="https://www.anetta.ai"><img alt="Anetta-logo" src="anetta-ai.jpg" /></a></p>
 <p><strong>AI compiled knowledge at the service of network and cloud engineers</strong></p>
-<p><strong>Latest Release (Release 1.2.0 - Nov 7th 2023)</strong></p>
+<p><strong>Latest Release (Release 1.2.1 - Nov 15th 2023)</strong></p>
 <h2 id="changes-from-previous-release">Changes from previous release</h2>
+<h3 id="new-in-release-121">New in Release 1.2.1</h3>
+<p>Three small changes added to this release:</p>
+<ul>
+<li>
+<p>I have seen a couple of times the LLM producing a "wrong" (i.e. hallucinated) device_type field that wrongly instructed the Netmiko plug-in, resulting in an error. Some extra guardrail has been added to detect this, since the source of truth is available from the inventory anyway. </p>
+</li>
+<li>
+<p>Sometimes, it may take 10s of seconds to get the respond to a request (particularly if it is a complex request that requires multiple reasoning steps). During that time lots of things are happening inside Anetta but not displayed in the UI (just three jumping dots). A new "verbose" mode has been added to give the user visibility of what is happening under the hoods. A new parameter in the configuration file is available to enable this option.</p>
+</li>
+<li>
+<p>Small fix for a corner case where some string concatenation would fail. </p>
+</li>
+</ul>
+<p>Docker containers have been updated with this release:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest
+</code></pre>
+<p>Alternatively, the version specific containers are also be available:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-1-2-1-arm64:v1.2.1
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-1-2-1-amd64:v.1.2.1
+</code></pre>
 <h3 id="new-in-release-120">New in Release 1.2.0</h3>
 <p>One two main change has been included:</p>
 <ul>
@@ -464,10 +485,12 @@ operation:
   max_steps: 10
   #the following parameter is highly experimental. It will spin up a swarm of agents to get your responses
   num_agents: 1
+  verbose: 'no'
 
 </code></pre>
 <p>The section above refers to certain parameters that control the operation. <code>max_steps</code> controls the maximum number of steps that Anetta will execute when troubleshooting a problem. <code>num_agents</code> controls a very experimental feature at this point that allows Anetta to launch a swarm of <code>num_agents</code> agents that increases the probability of finding the right answer to an information search. By default it is disabled by setting the number of agents to 1.</p>
 <p>Setting <code>num_agents</code> to a number greater than one will work, but it will substantially increase the execution time since the execution is not parallelized at this point yet. This is a todo item. Functionally wise,  it should still provide the expected response.</p>
+<p>The new "verbose" mode will provide real time details on what is going on inside Anetta when a request is made. It can be enable simply by setting the <code>verbose</code> attribute to 'yes' . Once a new conversation starts (i.e. the config is reloaded) Anetta will provide more details for the processing of new requests. </p>
 <pre><code>#data sources available
 #if any of the following sources is not available for Anetta to use, set it to 'no', otherwise errors will happen
 data_sources:
@@ -932,5 +955,5 @@ This Agreement constitutes the entire agreement between the parties and supersed
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-11-07 11:54:30.094522+00:00
+Build Date UTC : 2023-11-15 10:46:20.703030+00:00
 -->
