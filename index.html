@@ -34,7 +34,10 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem active">
-                                <a href="." class="nav-link">Latest_Relese_1_1_X</a>
+                                <a href="." class="nav-link">Latest_Relese_2_X_X</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="release_1_X_X/" class="nav-link">Release_1_X_X</a>
                             </li>
                             <li class="navitem">
                                 <a href="release_1_0_0/" class="nav-link">Release_1_0_X</a>
@@ -53,7 +56,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="release_1_0_0/" class="nav-link">
+                                <a rel="next" href="release_1_X_X/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -117,6 +120,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#anetta-local-knowledge-base" class="nav-link">Anetta Local Knowledge base</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#anetta-insights" class="nav-link">Anetta Insights</a>
               <ul class="nav flex-column">
               </ul>
@@ -147,67 +154,27 @@
 <h1 id="welcome-to-anetta-documentation">Welcome to Anetta Documentation</h1>
 <p><a href="https://www.anetta.ai"><img alt="Anetta-logo" src="anetta-ai.jpg" /></a></p>
 <p><strong>AI compiled knowledge at the service of network and cloud engineers</strong></p>
-<p><strong>Latest Release (Release 1.2.1 - Nov 15th 2023)</strong></p>
+<p><strong>Latest Release (Release 2.0.0 - Dec 5th 2023)</strong></p>
 <h2 id="changes-from-previous-release">Changes from previous release</h2>
-<h3 id="new-in-release-121">New in Release 1.2.1</h3>
-<p>Three small changes added to this release:</p>
+<h3 id="new-in-release-200">New in Release 2.0.0</h3>
+<p>Two key new enhancements are available in this release:</p>
 <ul>
 <li>
-<p>I have seen a couple of times the LLM producing a "wrong" (i.e. hallucinated) device_type field that wrongly instructed the Netmiko plug-in, resulting in an error. Some extra guardrail has been added to detect this, since the source of truth is available from the inventory anyway. </p>
+<p>LLMs have varying level of network operational knowledge (see <a href="https://github.com/javier-antich/llm-nok-benchmark">NOK LLM Benchmark</a>). Sometimes they may produce generate a wrong command as a result of a random "hallucination". A mechanism has been implemented to detect and mitigate such infrequent (but possible) mistakes made by the LLM.  </p>
 </li>
 <li>
-<p>Sometimes, it may take 10s of seconds to get the respond to a request (particularly if it is a complex request that requires multiple reasoning steps). During that time lots of things are happening inside Anetta but not displayed in the UI (just three jumping dots). A new "verbose" mode has been added to give the user visibility of what is happening under the hoods. A new parameter in the configuration file is available to enable this option.</p>
-</li>
-<li>
-<p>Small fix for a corner case where some string concatenation would fail. </p>
+<p>LLMs may have weaknesses in their network operational knowledge, as a result of which, they do not know, for a specific vendor, the right operational CLI commands to perform specific queries or operations. It is necessary to augment their knowledge with a local knowledge base. Now in release 2.0 Anetta supports a local knowledge base powered by a vector database. It is now possible to create local mappings that will complement what the LLM already knows and close the gaps that may exist.</p>
 </li>
 </ul>
+<p>Note: there are for both functionalities new configuration knobs in the configuration file. Pls review the section below to become familiar with them.</p>
 <p>Docker containers have been updated with this release:</p>
 <pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest
 - Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest
 </code></pre>
 <p>Alternatively, the version specific containers are also be available:</p>
-<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-1-2-1-arm64:v1.2.1
-- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-1-2-1-amd64:v.1.2.1
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-2-0-0-arm64:v2.0.0
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-2-0-0-amd64:v.2.0.0
 </code></pre>
-<h3 id="new-in-release-120">New in Release 1.2.0</h3>
-<p>One two main change has been included:</p>
-<ul>
-<li>
-<p>There is now "native" support for newer OpenAI models. Before, only gpt-4 was supported. Any other model was only accessible via OpenRouter interface. Now, with Nov 6th announcement, new models are available via API, in particular GPT-4-Turbo. It is now available with the model option <code>gpt-4-1106-preview</code> . With this model 128K token prompt is available as well as it is much faster than its predecessors, at 1/3rd of the price, while theoretically maintaining the same level of knowledge.</p>
-</li>
-<li>
-<p>Updates on the docker compose file allow running Anetta with a proxy server if required.</p>
-</li>
-</ul>
-<h3 id="new-in-release-111">New in Release 1.1.1</h3>
-<p>Two changes have been included:</p>
-<ul>
-<li>
-<p>Due to some components are c-compiled, now separate docker containers are available for arm64 and amd64 (i.e. intel x86) architectures. You can find the latest version for each architecture always in the following containers in docker hub:</p>
-<ul>
-<li>Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest</li>
-<li>Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest</li>
-</ul>
-</li>
-</ul>
-<p>Alternatively, the version specific containers will also be available:</p>
-<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-1-1-1-arm64:v1.1.1
-- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-1-1-1-amd64:v.1.1.1
-</code></pre>
-<ul>
-<li>In order to run Anetta in a separate server than your laptop, now a new parameter is added to the <code>docker-compose.yml</code> file to specify the allowed IP addresses, where you should include which IP addresses you want Anetta to run on. </li>
-</ul>
-<h3 id="new-in-release-110">New in Release 1.1.0</h3>
-<p>Two key new capabilities have been added from release 1.0.0 that justify a change to 1.1.0:</p>
-<ul>
-<li>
-<p>Now new LLM models can be used with the integration of OpenRouter.ai</p>
-</li>
-<li>
-<p>A new mode exists that will dynamically choose between OpenAI gpt-4 and gpt-4-32k for large prompt requests.</p>
-</li>
-</ul>
 <hr />
 <h2 id="what-is-anetta">What is Anetta?</h2>
 <p>Anetta is an acronym that refers to: 
@@ -285,6 +252,12 @@
 <p>In order to run Anetta you need to have your own OpenAI's API Key which must be configured as part of the configuration file. See Anetta <a href="#anetta-configuration">configuration section</a>. If you do not have an API key from OpenAI, you will need to register in OpenAI and create an API Key <a href="https://platform.openai.com/account/api-keys">here</a></p>
 <p>If you are using Openrouter then you need to make sure you create an account in <a href="https://openrouter.ai">OpenRouter.ai</a>. At the moment, it is a pre-paid service so you will need to have some credit added in order to be able to make use of the API services. </p>
 <p>Work is on-going to test LLM options such as Google's Palm2 and others. We are evaluating as well the opportunity and need to customize and fine tune a model for our purposes. </p>
+<h3 id="embedding-models-supported">Embedding models supported</h3>
+<p>Some of you may be wondering, what is an embedding model? It is a type of LLM that is used to transform a text sequence into an embedding vector. And what is an embedding vector? A representation of the original text in a n-dimensional space that captures the semantics of the text. In other words, given two texts that are semantically very similar, their embedding vectors will have an angle between them very small, in such n-dimensional space. Embedding vectors along with vector databases are a very powerful tool for semantic similarity search.</p>
+<p>Starting in release 2.0.0, Anetta supports a vector database (pgvector) to facilitate the creation of a local knowledge base of queries to CLI command mappings. Every such query is transformed into an embeddings vector to facilitate similarity search. Anetta supports OpenAI cloud based embedding and local HuggingFace based embedding models. </p>
+<p>By default, the embedding model used is OpenAI's <code>text-embedding-ada-002</code>. The model is a configurable parameter in the configuration file. It can be changed by other embedding model from OpenAI. </p>
+<p>Alternatively, it is possible to configure Anetta to use a locally downloaded embedding model. For that purpose, Anetta will use HuggingFace API to download the model. By default, if that option is selected, it will use <code>jinaai/jina-embeddings-v2-base-en</code> . It is also possible to select a different model by changing the configuration file (see configuration section)</p>
+<p>It is <strong>important</strong> to note, that all entries in the database <strong>must</strong> be generated with the same embedding model. At this point, if you need to change the embedding model, you will have to manually delete and re-generate all entries in the local database with the new embedding model (at this point there is no automated embedding model migration option)</p>
 <h3 id="devices-supported">Devices supported</h3>
 <p>Based on the experience with OpenAI's GPT-4 LLM, we have seen she knows well how to deal with the major networking vendors such as Cisco, Juniper, Arista, Nokia. That said, the degree of completeness is still unknown. Your feedback will be extremely valuable to have a better assessment on what works, what doesn't, for which vendors there is better support or limited. </p>
 <p>Anetta also interacts quite well with Linux servers or VMs as well as API based interactions with Prometheus and graphQL based Inventory systems. </p>
@@ -347,7 +320,7 @@
 <li>In order to interact with you, if you are not installing it in your own laptop but on a different server, you need to have HTTP connectivity with Anetta's Web GUI.</li>
 </ul>
 <h2 id="installing-anetta">Installing Anetta</h2>
-<p>Anetta is packaged as a Docker Container. It is necessary that you have installed docker in your platform.</p>
+<p>Anetta is packaged as Docker Containers. It is necessary that you have installed docker in your platform.</p>
 <p>You can download Anetta's docker image from Docker Hub:
 Depending on the hardware platform you are running, you should download the right image:</p>
 <pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest
@@ -382,7 +355,13 @@ Download or clone the following Github repo in the local folder of your choice w
 <p>Once you have the Docker image downloaded and compose file edited, run the following command from the folder where you downloaded and edited the configuration files:</p>
 <pre><code>docker compose up
 </code></pre>
-<p>This will create the container, load the corresponding configuration files and initiate Anetta. At this point, you should have anetta running.</p>
+<p>This will create two containers:</p>
+<ul>
+<li>Anetta: container that will run the Anetta agent</li>
+<li>PG-Vector: container that will run the PostgreSQL-Vector Database.</li>
+</ul>
+<p>After that, it load the corresponding configuration files and initiate Anetta. If it is the first time, it will initiate the database with the required usernames, and a few sample entries. </p>
+<p>At this point, you should have anetta running.</p>
 <pre><code>javier@Javiers-MBP anetta_test % docker compose up
 [+] Running 1/0
  ⠿ Container anetta  Created                                                                                                                                                                           0.0s
@@ -405,7 +384,7 @@ anetta  | Extracting from the asgi fle
 <hr />
 <h2 id="anetta-architecture">Anetta Architecture</h2>
 <p>The following diagram captures Anetta logical architecture:</p>
-<p><img alt="Anetta architecture" src="anetta-architecture.png" /></p>
+<p><img alt="Anetta architecture" src="anetta-architecture-dec-2023.png" /></p>
 <p>Anetta follows a plug-in based architecture where specific plug-ins are developed for different types of sources. The following are the currently available plug-ins:</p>
 <ul>
 <li>
@@ -441,6 +420,12 @@ anetta  | Extracting from the asgi fle
 <li>
 <p><strong>Web Front-end</strong>: Anetta has been built leveraging Django framework. Since it is still a prototype, at the moment it runs Django's development web server, not a "real" production web server. In the future it will be migrated, but for the time being, it is good enough to evaluate multiple use cases.</p>
 </li>
+<li>
+<p><strong>Vector Database</strong>: Anetta has persistent storage in a PG-Vector Database. It is currently used to create a local knowledge base for mappings between information requests and their corresponding operational CLI commands.</p>
+</li>
+<li>
+<p><strong>Local Embeddings LLM</strong>: For embedding vector generation, it is possible to use now a local model. </p>
+</li>
 </ul>
 <hr />
 <h2 id="anetta-configuration">Anetta Configuration</h2>
@@ -458,6 +443,9 @@ llm:
   #openrouter_endpoint: 'https://openrouter.ai/api/v1'
   #if you want to change the OpenAI endpoint, modify the following parameter. Otherwise, leave it as default.
   openai_endpoint: 'https://api.openai.com/v1'
+  openai_embedding: 'text-embedding-ada-002'
+  huggingface_embedding: 'jinaai/jina-embeddings-v2-base-en'
+  local_embedding: 'no'
 
 </code></pre>
 <p>If openrouter is not enabled, then openai_key is a mandatory field. In that case, if the <code>openai_key</code>parameter is not populated or not present, Anetta will fail to function. 
@@ -480,17 +468,22 @@ The <code>model</code> field refers to the OpenAI model that will be used native
 </ul>
 <p>With this option, Anetta will use <code>gpt-4</code> unless the prompt size is larger than the maximum window of 8K tokens. In that case it will dynamically switch to <code>gpt-4-32k</code> for that request. This way the chances of exceeding the maximum prompt size are minimized while at the same time keeping the LLM cost lower (<code>gpt-4-32k</code> API call cost is at the moment 2x <code>gpt-4</code>'s)</p>
 <p>You can now also set the API endpoint for OpenRouter and OpenAI, if required.</p>
+<p>For embedding vector generation, by default, if no embedding is configured, it will use OpenAI's <code>text-embedding-ada-002</code>. Take this into account if you are using Anetta only with OpenRouter models. In that case, you will need to set the <code>local_embedding</code> parameter to <code>yes</code>, and either use the default <code>huggingface_embedding</code> or set a different one. </p>
 <pre><code>#operation
 operation:
   max_steps: 10
   #the following parameter is highly experimental. It will spin up a swarm of agents to get your responses
   num_agents: 1
   verbose: 'no'
+  hallucination_management: 'yes'
+  use_local_knowledgebase: 'yes'
 
 </code></pre>
 <p>The section above refers to certain parameters that control the operation. <code>max_steps</code> controls the maximum number of steps that Anetta will execute when troubleshooting a problem. <code>num_agents</code> controls a very experimental feature at this point that allows Anetta to launch a swarm of <code>num_agents</code> agents that increases the probability of finding the right answer to an information search. By default it is disabled by setting the number of agents to 1.</p>
 <p>Setting <code>num_agents</code> to a number greater than one will work, but it will substantially increase the execution time since the execution is not parallelized at this point yet. This is a todo item. Functionally wise,  it should still provide the expected response.</p>
 <p>The new "verbose" mode will provide real time details on what is going on inside Anetta when a request is made. It can be enable simply by setting the <code>verbose</code> attribute to 'yes' . Once a new conversation starts (i.e. the config is reloaded) Anetta will provide more details for the processing of new requests. </p>
+<p><code>hallucination_management</code> instructs Anetta to search for mistakes in operational CLI commands generated. When it is set to <code>yes</code> it will be activated. The implications is that it takes longer to obtain CLI commands, and there are additional LLM calls required in the process (additional costs)</p>
+<p>Starting in release 2.0.0 Anetta supports the creation of a local knowledge base of CLI command mappings. It is possible to disable the use of such database by setting the <code>use_local_knowledgebase</code> attribute to <code>no</code></p>
 <pre><code>#data sources available
 #if any of the following sources is not available for Anetta to use, set it to 'no', otherwise errors will happen
 data_sources:
@@ -750,6 +743,15 @@ Once a response is provided, you can continue with new requests or start a new c
 <p><img alt="Generic questions" src="example_generic_1.png" /></p>
 <p>I know you do not need Anetta for this, you could simply Google or use ChatGPT for that matter. But given that you may be using Anetta for other use cases or information search, being also able to make these generic questions is simply convenient. </p>
 <hr />
+<h2 id="anetta-local-knowledge-base">Anetta Local Knowledge base</h2>
+<p>In order to maximize the quality of the responses offered by Anetta, it is important to "help" the LLM where it has gaps. Sometimes the LLM may have not been exposed to certain vendor specific documentation, or certain commands, and therefore the LLM does not know them. Creating a local knowledge base helps the model in generating the right CLI commands as a combination of what it knows already plus the local knowledge. </p>
+<p>A new option in the left menu <code>Your agent &gt; CLI Knowledge Base</code> gives access to a new panel that will visualize the entries currently available in the database. </p>
+<p><img alt="Local Knowledgebase" src="local-knowledgebase.png" /> </p>
+<p>While not visible, each entry has associated its own embeddings vector.</p>
+<p>New entries can be created by clicking <code>Add new mapping</code>. By filling and submitting the following form, new entries can be easily added.</p>
+<p><img alt="New mapping creation" src="new-mapping.png" /></p>
+<p>Once entries exist in the local knowledge base, Anetta will make use of them when appropriate.</p>
+<hr />
 <h2 id="anetta-insights">Anetta Insights</h2>
 <p>Lots of things are happening under the hoods when you make a request to Anetta. They translate into saved time for you as you delegate on those tasks, but they also translate into a number of requests to the LLM provider. The performance of the LLM provider is important for your user experience. The overall latency, or the latency per token are key parameters to understand why responsiveness may not be good. For this reason, some insights are offered to help you understand, as you use Anetta, how is the response time evolving and how the underlying LLM is behaving over time. </p>
 <p>The agent insights panel provides you with some information in this context:</p>
@@ -815,6 +817,8 @@ Once a response is provided, you can continue with new requests or start a new c
 <p>A: Reach out to us so we can explore options to add new vendors to Anetta.</p>
 <p><strong>Q: Sometimes it takes a long time to get answers from Anetta</strong></p>
 <p>A: Anetta uses LLM API calls as the LLM is "her brain". Latency from LLM calls varies depending on network, LLM provider load, length of the query and response from the LLM. Frequently, multiple LLM calls are required to achieve the response you need. The expectation is that over time, the response time will be improving (you can see the evolution in the Anetta Insights). There are also cases where we have opportunity to parallelize tasks that as of now are simply serialized (because the goal was not to optimize response time so far). In some cases it could also be that something went wrong and Anetta is stuck in some bad state. Many errors are handled and you should see notification in the UI but there may be errors that are not handled. In those cases, you should stop and start Anetta.</p>
+<p><strong>Q: Anetta fails to generate the right CLI command for a specific query. What can I do?</strong></p>
+<p>A: You can create new entries in the local knowledge base for the type of query or data you need, specify the device OS associated as well as the CLI operational command that is adequate. Moving forward, Anetta will use the right command when the same or similar queries are done in the future.</p>
 <hr />
 <h2 id="license">License</h2>
 <p>SOFTWARE LICENSE AGREEMENT</p>
@@ -873,8 +877,7 @@ This Agreement constitutes the entire agreement between the parties and supersed
 <p><strong>email:</strong> javier@anetta.ai</p>
 <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/javier-antich-romaguera/">https://www.linkedin.com/in/javier-antich-romaguera/</a></p>
 <p><strong>Twitter/X:</strong> @AnettaAI</p>
-<p><strong>Discord server:</strong> <a href="https://discord.gg/4k5jt63x">https://discord.gg/4k5jt63x</a></p>
-<p>Particularly to discuss problems, new features, use cases, I suggest to use the Discord server.</p></div>
+<p><strong>Anetta@ LinkedIn</strong> <a href="https://www.linkedin.com/company/anetta-ai/">https://www.linkedin.com/company/anetta-ai/</a></p></div>
             </div>
         </div>
 
@@ -955,5 +958,5 @@ This Agreement constitutes the entire agreement between the parties and supersed
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-11-15 10:46:20.703030+00:00
+Build Date UTC : 2023-12-05 15:10:24.079032+00:00
 -->

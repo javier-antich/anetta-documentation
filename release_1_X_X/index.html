@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://anetta.ai/release_1_0_0/">
+        <link rel="canonical" href="http://anetta.ai/release_1_X_X/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Release_1_0_X - Anetta documentation</title>
+        <title>Release_1_X_X - Anetta documentation</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -36,11 +36,11 @@
                             <li class="navitem">
                                 <a href=".." class="nav-link">Latest_Relese_2_X_X</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../release_1_X_X/" class="nav-link">Release_1_X_X</a>
-                            </li>
                             <li class="navitem active">
-                                <a href="./" class="nav-link">Release_1_0_X</a>
+                                <a href="./" class="nav-link">Release_1_X_X</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../release_1_0_0/" class="nav-link">Release_1_0_X</a>
                             </li>
                         </ul>
 
@@ -51,12 +51,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../release_1_X_X/" class="nav-link">
+                                <a rel="prev" href=".." class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../release_1_0_0/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -80,6 +80,10 @@
             
             <li class="nav-item" data-level="1"><a href="#welcome-to-anetta-documentation" class="nav-link">Welcome to Anetta Documentation</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#changes-from-previous-release" class="nav-link">Changes from previous release</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#what-is-anetta" class="nav-link">What is Anetta?</a>
               <ul class="nav flex-column">
               </ul>
@@ -144,8 +148,69 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="welcome-to-anetta-documentation">Welcome to Anetta Documentation</h1>
-<p>Release 1.0.0 - Sept 26th 2023</p>
-<p>AI compiled knowledge at the service of network and cloud engineers</p>
+<p><a href="https://www.anetta.ai"><img alt="Anetta-logo" src="../anetta-ai.jpg" /></a></p>
+<p><strong>AI compiled knowledge at the service of network and cloud engineers</strong></p>
+<p><strong>Latest Release (Release 1.2.1 - Nov 15th 2023)</strong></p>
+<h2 id="changes-from-previous-release">Changes from previous release</h2>
+<h3 id="new-in-release-121">New in Release 1.2.1</h3>
+<p>Three small changes added to this release:</p>
+<ul>
+<li>
+<p>I have seen a couple of times the LLM producing a "wrong" (i.e. hallucinated) device_type field that wrongly instructed the Netmiko plug-in, resulting in an error. Some extra guardrail has been added to detect this, since the source of truth is available from the inventory anyway. </p>
+</li>
+<li>
+<p>Sometimes, it may take 10s of seconds to get the respond to a request (particularly if it is a complex request that requires multiple reasoning steps). During that time lots of things are happening inside Anetta but not displayed in the UI (just three jumping dots). A new "verbose" mode has been added to give the user visibility of what is happening under the hoods. A new parameter in the configuration file is available to enable this option.</p>
+</li>
+<li>
+<p>Small fix for a corner case where some string concatenation would fail. </p>
+</li>
+</ul>
+<p>Docker containers have been updated with this release:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest
+</code></pre>
+<p>Alternatively, the version specific containers are also be available:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-1-2-1-arm64:v1.2.1
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-1-2-1-amd64:v.1.2.1
+</code></pre>
+<h3 id="new-in-release-120">New in Release 1.2.0</h3>
+<p>One two main change has been included:</p>
+<ul>
+<li>
+<p>There is now "native" support for newer OpenAI models. Before, only gpt-4 was supported. Any other model was only accessible via OpenRouter interface. Now, with Nov 6th announcement, new models are available via API, in particular GPT-4-Turbo. It is now available with the model option <code>gpt-4-1106-preview</code> . With this model 128K token prompt is available as well as it is much faster than its predecessors, at 1/3rd of the price, while theoretically maintaining the same level of knowledge.</p>
+</li>
+<li>
+<p>Updates on the docker compose file allow running Anetta with a proxy server if required.</p>
+</li>
+</ul>
+<h3 id="new-in-release-111">New in Release 1.1.1</h3>
+<p>Two changes have been included:</p>
+<ul>
+<li>
+<p>Due to some components are c-compiled, now separate docker containers are available for arm64 and amd64 (i.e. intel x86) architectures. You can find the latest version for each architecture always in the following containers in docker hub:</p>
+<ul>
+<li>Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest</li>
+<li>Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest</li>
+</ul>
+</li>
+</ul>
+<p>Alternatively, the version specific containers will also be available:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-1-1-1-arm64:v1.1.1
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-1-1-1-amd64:v.1.1.1
+</code></pre>
+<ul>
+<li>In order to run Anetta in a separate server than your laptop, now a new parameter is added to the <code>docker-compose.yml</code> file to specify the allowed IP addresses, where you should include which IP addresses you want Anetta to run on. </li>
+</ul>
+<h3 id="new-in-release-110">New in Release 1.1.0</h3>
+<p>Two key new capabilities have been added from release 1.0.0 that justify a change to 1.1.0:</p>
+<ul>
+<li>
+<p>Now new LLM models can be used with the integration of OpenRouter.ai</p>
+</li>
+<li>
+<p>A new mode exists that will dynamically choose between OpenAI gpt-4 and gpt-4-32k for large prompt requests.</p>
+</li>
+</ul>
 <hr />
 <h2 id="what-is-anetta">What is Anetta?</h2>
 <p>Anetta is an acronym that refers to: 
@@ -169,7 +234,7 @@
 <p><strong>GPT</strong>: Generative Pre-trained Transformer. This is a type of LLM. There are other types. Examples of GPTs are OpenAI's GPT-3.5, GPT-4, Google's Palm2, Antrophic Claude 1 and 2, among others. </p>
 </li>
 <li>
-<p><strong>ChatGPT</strong>: This is not a LLM, this is an application that uses a LLM. You usually get the perception that ChatGPT has memory, because it "knows" about the previous questions you made. However, the underlying LLM is always stateless, so the application is taking care of that by always providing all the required information relative to your previous questions and answers, every time the LLM is prompted.</p>
+<p><strong>ChatGPT</strong>: This is not an LLM, this is an application that uses an LLM. You usually get the perception that ChatGPT has memory, because it "knows" about the previous questions you made. However, the underlying LLM is always stateless, so the application is taking care of that by always providing all the required information relative to your previous questions and answers, every time the LLM is prompted.</p>
 </li>
 <li>
 <p><strong>Agent</strong>: An agent is a somewhat <strong>autonomous</strong> entity capable to solve complex problems or achieve goals. There are multiple agent architectures already available. AutoGPT is one of them. Agents are complex systems intended to execute one or several tasks given a goal or "intent" provided by the user. Agents use LLMs where needed to accomplish the goal requested and usually have different mechanisms to keep memory. Anetta is an agent of this kind, but it is not based on any pre-existing agent architecture. It has been purpose built to address the use cases planned. </p>
@@ -178,7 +243,7 @@
 <p>Therefore, Anetta is:</p>
 <ul>
 <li>
-<p><strong>NOT a LLM</strong>. She uses LLMs where required to perform its mission.</p>
+<p><strong>NOT an LLM</strong>. She uses LLMs where required to perform its mission.</p>
 </li>
 <li>
 <p><strong>NOT a GPT</strong>. She uses LLMs that are GPTs.</p>
@@ -214,9 +279,15 @@
 </ol>
 <p><img alt="General info" src="../uc_general_info.png" /></p>
 <h3 id="llms-supported">LLMs supported</h3>
-<p>As of the first release, Anetta uses OpenAI's GPT-4 LLM. Tests with GPT-3.5 did not result into good enough results. </p>
+<p>As of this release there is a broad set of LLMs that can be used with Anetta. With OpenRouter.ai integration, it is possible to choose other models than OpenAI gpt-4 such as OpenAI gpt-4-32k for large context or the newly released GPT-4-Turbo (<code>gpt-4-1106-preview</code>), but also Anthropic Claude-2 with a context window of 100K tokens. OpenRouter.ai supports a large number of models. They can be configured in the Anetta configuration but that does not mean they will work well. So far, the models tested are the following:</p>
+<ul>
+<li>OpenAI gpt-4, gpt-4-32k and gpt-4-1106-preview (aka GPT-4-Turbo with 128K window size): They produce good results consistently. The most powerful so far</li>
+<li>Anthropic Claude-2: Produces good results but testing has not been too comprehensive yet. </li>
+</ul>
+<p>Any other model offered by OpenRouter.ai has not been tested. Feel free to try them, but we do not know how well or badly they may behave. </p>
 <p>In order to run Anetta you need to have your own OpenAI's API Key which must be configured as part of the configuration file. See Anetta <a href="#anetta-configuration">configuration section</a>. If you do not have an API key from OpenAI, you will need to register in OpenAI and create an API Key <a href="https://platform.openai.com/account/api-keys">here</a></p>
-<p>Work is on-going to incorporate other LLM options such as Google's Palm2 and Antrophic Claude 2. We are evaluating as well the opportunity and need to customize and fine tune a model for our purposes. </p>
+<p>If you are using Openrouter then you need to make sure you create an account in <a href="https://openrouter.ai">OpenRouter.ai</a>. At the moment, it is a pre-paid service so you will need to have some credit added in order to be able to make use of the API services. </p>
+<p>Work is on-going to test LLM options such as Google's Palm2 and others. We are evaluating as well the opportunity and need to customize and fine tune a model for our purposes. </p>
 <h3 id="devices-supported">Devices supported</h3>
 <p>Based on the experience with OpenAI's GPT-4 LLM, we have seen she knows well how to deal with the major networking vendors such as Cisco, Juniper, Arista, Nokia. That said, the degree of completeness is still unknown. Your feedback will be extremely valuable to have a better assessment on what works, what doesn't, for which vendors there is better support or limited. </p>
 <p>Anetta also interacts quite well with Linux servers or VMs as well as API based interactions with Prometheus and graphQL based Inventory systems. </p>
@@ -270,7 +341,7 @@
 <p>First of all, you need Internet connectivity (to Docker Hub) to download the docker container, and you need connectivity with Github to download some additional auxiliary files as explained in the next section. </p>
 <p>Once installed, Anetta will require the following communication channels to be available:</p>
 <ul>
-<li>You need connectivity towards the LLM: At the moment, that means HTTPS access to OpenAI API (<code>https://api.openai.com</code>)</li>
+<li>You need connectivity towards the LLM: At the moment, that means HTTPS access to OpenAI API (<code>https://api.openai.com</code>) or towards Openrouter API endpoint (<code>https://openrouter.ai/api/v1</code>)</li>
 <li>If Anetta is going to interact with network elements, she will need SSH connectivity with the network devices and/or SNMP reachability.</li>
 <li>If Anetta is going to interact with a Prometheus instance, she will require HTTP connectivity with the IP address and port where your Prometheus server is listening.</li>
 <li>If Anetta is going to interact with VMs or servers, she will need SSH connectivity with the VMs or servers.</li>
@@ -280,37 +351,57 @@
 </ul>
 <h2 id="installing-anetta">Installing Anetta</h2>
 <p>Anetta is packaged as a Docker Container. It is necessary that you have installed docker in your platform.</p>
-<p>You can download Anetta's docker image from Docker Hub:</p>
-<pre><code>docker pull javierantich/anetta-1-0-0:v1.0.0
+<p>You can download Anetta's docker image from Docker Hub:
+Depending on the hardware platform you are running, you should download the right image:</p>
+<pre><code>- Architecture arm64 (Apple M1/M2): javierantich/anetta-arm64:latest
+- Architecture amd64 (Intel 64bit compatible): javierantich/anetta-amd64:latest
+</code></pre>
+<p>Example for arm64:</p>
+<pre><code>docker pull javierantich/anetta-arm64:latest
 </code></pre>
 <p>In addition, you have to download a few files from Github to make sure it works. 
 Download or clone the following Github repo in the local folder of your choice where you will run Anetta</p>
 <pre><code>https://github.com/javier-antich/anetta-install
 </code></pre>
-<p>Please, follow carefully the next 3 steps:</p>
+<p>Please, follow carefully the next 4 steps:</p>
 <ul>
 <li>Make sure you edit the configuration file (<code>anetta_config.yml</code>), see the Anetta <a href="#anetta-configuration">configuration section</a> for details on what needs to be edited. </li>
 <li>Also, make sure you populate the inventory (<code>inventory.yml</code>) with the devices you are interested Anetta to interact with. </li>
 <li>Last but not least, if you are planning for Anetta to interact with your Google Cloud Platform API, you need to make sure you obtain the JSON file with the key for a service account in the Google Cloud project of interest, and place that file in the folder with the name <code>gcp_service_account_credentials.json</code>. This is necessary for Anetta to be able to login in the API and make queries.</li>
+<li>Edit the <code>docker-compose.yml</code> file to make sure the following two parameters are properly set:<ul>
+<li><code>image:</code>: set it to the one corresponding to the architecture you run and image you downloaded.</li>
 </ul>
-<p>Once you have the Docker image downloaded, run the following command from the folder where you downloaded and edited the configuration files:</p>
+</li>
+</ul>
+<pre><code>    environment:
+      - ALLOWED_HOSTS=127.0.0.1,localhost,192.168.10.138
+</code></pre>
+<p>Set the <code>ALLOWED_HOSTS</code> with the IP address of your server where you want Anetta to run, if you want to to respond to queries to the server IP address.</p>
+<p>If you need Anetta to reach internet via a proxy server, uncommend and fill the following parameters:</p>
+<pre><code>      #- HTTP_PROXY=http://your.proxy.server:port
+      #- HTTPS_PROXY=https://your.proxy.server:port
+      #- NO_PROXY=localhost,127.0.0.1  
+</code></pre>
+<p>Once you have the Docker image downloaded and compose file edited, run the following command from the folder where you downloaded and edited the configuration files:</p>
 <pre><code>docker compose up
 </code></pre>
 <p>This will create the container, load the corresponding configuration files and initiate Anetta. At this point, you should have anetta running.</p>
-<pre><code>javier@Javiers-MBP anetta_test % docker compose up                           
+<pre><code>javier@Javiers-MBP anetta_test % docker compose up
 [+] Running 1/0
- ⠿ Container anetta  Created                                                                                                                                0.0s
+ ⠿ Container anetta  Created                                                                                                                                                                           0.0s
 Attaching to anetta
 anetta  | Base directory: /anetta
 anetta  | Base directory: /anetta
 anetta  | Performing system checks...
 anetta  | 
 anetta  | System check identified no issues (0 silenced).
-anetta  | September 13, 2023 - 13:16:27
+anetta  | October 03, 2023 - 17:51:45
 anetta  | Django version 4.2.2, using settings 'core.settings'
 anetta  | Starting ASGI/Daphne version 4.0.0 development server at http://0.0.0.0:8000/
 anetta  | Quit the server with CONTROL-C.
 anetta  | Extracting from the asgi fle
+
+
 
 </code></pre>
 <p>And it should be possible to use the web interface at <code>http://127.0.0.1:8000</code></p>
@@ -359,22 +450,50 @@ anetta  | Extracting from the asgi fle
 <p>Anetta behavior is driven by a configuraiton file <code>anetta_config.yml</code>. This YAML file contain the key directives that enable Anetta. Let's review them one by one. The configuration file has also some guidance on each. Every time a new conversation starts with Anetta or Anetta is reloaded, the configuration will be read and parameters incorporated. In case you need to change any parameter in the configuration file, you will need to start a new conversation or restart Anetta. For practical purposes, every API request is equivalent to a new conversation, so any change in the configuration file will be incorporated before any API request. </p>
 <pre><code>
 #LLM information
-#At the moment only gpt-4 is available. 
 llm:
   model: 'gpt-4'
   openai_key: '&lt;your OpenAI API key&gt;'
+  #the following parameters are optional. Add them if you are using Openrouter.ai
+  #openrouter: 'yes'
+  #choose the model from those supported by OpenRouter.ai
+  #openrouter_model: 'anthropic/claude-2'
+  #openrouter_key: 'your openrouter api key'
+  #openrouter_endpoint: 'https://openrouter.ai/api/v1'
+  #if you want to change the OpenAI endpoint, modify the following parameter. Otherwise, leave it as default.
+  openai_endpoint: 'https://api.openai.com/v1'
 
 </code></pre>
-<p>At the moment, only GPT-4 is supported. No other model option is supported at this point, so modifying the model parameter will not have an effect. However, if the <code>openai_key</code>parameter is not populated or not present, Anetta will fail to function. It is a mandatory parameter.</p>
+<p>If openrouter is not enabled, then openai_key is a mandatory field. In that case, if the <code>openai_key</code>parameter is not populated or not present, Anetta will fail to function. 
+The <code>model</code> field refers to the OpenAI model that will be used natively (not via OpenRouter). Options for this parameter: </p>
+<ul>
+<li>gpt-4</li>
+<li>gpt-4-32k (you need to have an account with access to this model)</li>
+<li>gpt-4-1106-preview (new OpenAI model announced on Nov 6th that corresponds to GPT-4-Turbo)</li>
+</ul>
+<p>GPT-4-Turbo is the fastest, cheapest and with longest context window. It is the recommended one at this point.</p>
+<p>When <code>openrouter</code> attribute is added and set to <code>yes</code> it is necessary to provide the corresponding API key in the parameter <code>openrouter_key</code>. If it is not provided, the configuration will not load properly and Anetta will not be oeprational. Select the model for <code>openrouter_model</code> from those supported by openrouter. You can see the complete list <a href="https://openrouter.ai/docs#models">here</a>. As previously stated, for now the following are the only ones which we have reasonable confidence in their capabilities:</p>
+<ul>
+<li>openai/gpt-4</li>
+<li>openai/gpt-4-32k</li>
+<li>anthropic/claude-2</li>
+</ul>
+<p>One interesting option for model configuration is the following:</p>
+<ul>
+<li>openai/gpt-4-auto</li>
+</ul>
+<p>With this option, Anetta will use <code>gpt-4</code> unless the prompt size is larger than the maximum window of 8K tokens. In that case it will dynamically switch to <code>gpt-4-32k</code> for that request. This way the chances of exceeding the maximum prompt size are minimized while at the same time keeping the LLM cost lower (<code>gpt-4-32k</code> API call cost is at the moment 2x <code>gpt-4</code>'s)</p>
+<p>You can now also set the API endpoint for OpenRouter and OpenAI, if required.</p>
 <pre><code>#operation
 operation:
   max_steps: 10
   #the following parameter is highly experimental. It will spin up a swarm of agents to get your responses
   num_agents: 1
+  verbose: 'no'
 
 </code></pre>
 <p>The section above refers to certain parameters that control the operation. <code>max_steps</code> controls the maximum number of steps that Anetta will execute when troubleshooting a problem. <code>num_agents</code> controls a very experimental feature at this point that allows Anetta to launch a swarm of <code>num_agents</code> agents that increases the probability of finding the right answer to an information search. By default it is disabled by setting the number of agents to 1.</p>
 <p>Setting <code>num_agents</code> to a number greater than one will work, but it will substantially increase the execution time since the execution is not parallelized at this point yet. This is a todo item. Functionally wise,  it should still provide the expected response.</p>
+<p>The new "verbose" mode will provide real time details on what is going on inside Anetta when a request is made. It can be enable simply by setting the <code>verbose</code> attribute to 'yes' . Once a new conversation starts (i.e. the config is reloaded) Anetta will provide more details for the processing of new requests. </p>
 <pre><code>#data sources available
 #if any of the following sources is not available for Anetta to use, set it to 'no', otherwise errors will happen
 data_sources:
@@ -623,6 +742,7 @@ Once a response is provided, you can continue with new requests or start a new c
 <p><img alt="rca example 2" src="../example_rca_2.png" /></p>
 <p>A few things to note and explain. While I have set it to be autonomous, you can see I am providing guidance on where to start, in the problem description itself. The reason for this is that otherwise it may find the root cause in the 2nd, 3rd, 4th or later step, and it would not fit in the screen capture.</p>
 <p>Also, you may observe I have provided details on the interfaces where the OSPF adjacency is on each router. This is not fundamentally necessary, but there is one challenge. Sometimes Anetta will need to run a set of CLI commands and analyze them to understand where the problem is, and depending on the case, the output of those commands may be long. We are inherently limited by the maximum prompt window size of the LLM provider that, as of now, is OpenAI's GPT-4 8K tokens. In the process of finding the information it is resonably easy to exceed such limit and get an error. For that reason I provide some additional guidance about what those interfaces are so the search is narrowed down to those, minimizing the output of the CLI operational commands. It is just a trick to work around the LLM limits, which, over time, will become less and less relevant. </p>
+<p>If you use OpenRouter with the model <code>openai/gpt-4-auto</code> Anetta will use the 32k window model where required, minimizing the chances that the maximum prompt size is exceeded, as in the example above.</p>
 <h4 id="asking-help-to-plan-an-action-in-the-network">Asking help to plan an action in the network.</h4>
 <p>You execute operations and do changes in the network frequently. Some may be already automated via workflow engines, some are probably still manual. In either case, each action requires some planning about what needs to be done, what needs to be verified before and what needs to be verified after to ensure the action executed was a success. All this require some time and effort to plan. Anetta can help you generate this plan with the details you need, in your network context, including those pre- and post-checks. </p>
 <p>The following is an example of it. 
@@ -685,6 +805,9 @@ Once a response is provided, you can continue with new requests or start a new c
 <p>A: No. It is important to differentiate between using GPT-4 API and using GPT-4 based ChatGPT. OpenAI has clear different policies in this respect. In <a href="https://openai.com/policies/terms-of-use">OpenAI's terms of use</a> you can find the following in point 3.c:</p>
 <p><em>(c) Use of Content to Improve Services. We do not use Content that you provide to or receive from our API (“API Content”) to develop or improve our Services. We may use Content from Services other than our API (“Non-API Content”) to help develop and improve our Services. You can read more here about how Non-API Content may be used to improve model performance. If you do not want your Non-API Content used to improve Services, you can opt out by filling out this form. Please note that in some cases this may limit the ability of our Services to better address your specific use case.</em></p>
 <p>Requests done via GPT-4 API are secured (SSL encrypted) and simply result in a response generated. None of the data sent via a prompt is kept for any purpose or used to further train or improve the models. That is not the case for ChatGPT ("Non-API Content"), however Anetta does not use GhatGPT.</p>
+<p>Similarly, for OpenRouter.ai, their <a href="https://openrouter.ai/privacy">privacy policy</a> states clearly in section 1:</p>
+<p><em>...While we do not store the inputs and outputs for each request, we do store metadata about them, such as size and model request latency.</em></p>
+<p>There is no use or storage of the actual prompts or responses, other than statistical use of size of the requests/responses and latency associated to the queries.</p>
 <p><strong>Q: Is Anetta an open source project?</strong></p>
 <p>A: No. At the moment, you can download and use it under the license terms stated. Part of the code is naturally visible and other part is not. </p>
 <p><strong>Q: Is there any license fee required to use Anetta?</strong></p>
